@@ -13,7 +13,7 @@ This project was bootstrapped with Create React App.
 
 This is a Learning platform website where you can learn new football skills.
 
-<!-- [Go to website](https://bbq-restaurant-2a1ce.web.app/) -->
+[Go to website](https://lms-football.web.app/)
 
 ## 2. Setup
 
@@ -37,7 +37,7 @@ These are the instructions to run the project:
 
 ### 4.1 Requirement gathering
 
-[Google Docs link](https://docs.google.com/document/d/1qFWId6j_1z-XDBq7mPd-L1hY6pfYmJm-3M_k4ZnZOr0/edit
+[Google Docs link](https://docs.google.com/document/d/1qFWId6j_1z-XDBq7mPd-L1hY6pfYmJm-3M_k4ZnZOr0/edit)
 
 ### 4.2 Project spreadsheet
 
