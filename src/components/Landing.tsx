@@ -2,6 +2,7 @@
 
 import { Link } from "react-router-dom";
 import hero from "assets/img/hero.png";
+import arrowDown from "assets/icns/arrowDown.png";
 import articles from "assets/home/articles.json";
 
 //Components
@@ -14,7 +15,9 @@ const Articles = articles.map((item) => {
       <article key={item.title}>
         <h2>{item.title}</h2>
         <p>{item.description}</p>
-        <img src={imgPath.default} alt="img" />
+        <div className="img-container">
+          <img src={imgPath.default} alt="img" />
+        </div>
       </article>
     </>
   );
@@ -23,9 +26,10 @@ const Articles = articles.map((item) => {
 export default function Landing() {
   return (
     <>
-      <div className="landing">
+      <div className="hero">
         <img className="bg" src={hero} alt="hero" />
-        <div className="hero">
+        <img className="hero-arrow" src={arrowDown} alt="aaa" />
+        <div className="bloc">
           <h1>
             <strong>Foot</strong>X
           </h1>
@@ -38,7 +42,7 @@ export default function Landing() {
           </Link>
         </div>
       </div>
-      {Articles}
+      <section>{Articles}</section>
     </>
   );
 }

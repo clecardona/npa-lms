@@ -10,7 +10,6 @@ button
   justify-content: center
   align-items: center
   padding: 0 12px
-  filter: brightness(0.85)
 
 .btn-main
   $color: $gray2
@@ -32,8 +31,11 @@ button
     filter: invert(1)
 
   &:hover
+    background: $white
+    border-color: $white
     transition: ease 0.3s
-    filter: brightness(1)
+    h3,h4
+      color: $color
 
   &:disabled
     filter: saturate(0)
