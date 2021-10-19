@@ -1,5 +1,7 @@
 // NPM package
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore/lite";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -12,4 +14,5 @@ const firebaseConfig = {
 
 const firebaseInstance = initializeApp(firebaseConfig);
 
-export default firebaseInstance;
+export const firestoreInstance = getFirestore(firebaseInstance);
+export const authInstance = getAuth(firebaseInstance);

@@ -1,0 +1,82 @@
+.landing
+    background: $yellow
+    height: 100vh
+
+    overflow: hidden
+.bg
+
+    position: absolute
+    top: 0
+    left: 0
+    height: 100vh
+    width: 100vw
+    max-width: 600px
+
+    object-fit: cover
+.hero
+    position: absolute
+    bottom: 100px
+
+    height: min-content
+    width: 100vw
+
+    padding: 1em
+
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: min-content 50px min-content
+    grid-template-areas: "title title" "subtitle subtitle" "signup login"
+
+    h1
+        grid-area: title
+
+    h2
+        grid-area: subtitle
+    .btn-signup
+        grid-area: signup
+        margin-right: 10px
+
+    .btn-login
+        grid-area: login
+        margin-left: 10px
+
+article
+    display: grid
+    grid-template-columns: 70% 1fr
+    grid-template-rows: min-content 1fr
+    grid-template-areas: "title null" "subtitle null"
+
+    padding: 1em
+    margin: 4em 0
+
+    height: min-content
+    h2,p
+        transform: rotate(-4deg)
+
+    h2
+        grid-area: title
+        padding: 6px 0
+
+    p
+        grid-area: subtitle
+        max-width: 80%
+
+    img
+        z-index: -1
+        position: absolute
+        right: 0
+
+        //width: 55%
+        height: 200px
+        margin: 0 .5em
+
+    &:nth-child(even)
+        grid-template-columns: 1fr 70%
+        grid-template-areas: " null title" "null subtitle "
+        h2,p
+            text-align: right
+        p
+            justify-self: flex-end
+
+        img
+            left: 0
