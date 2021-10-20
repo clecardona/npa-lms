@@ -22,7 +22,7 @@ export default function Signup() {
     const field = { [key]: value };
     setForm({ ...form, ...field });
   }
-  console.log(user);
+
   async function onSubmit(e) {
     e.preventDefault();
     setMessage("");

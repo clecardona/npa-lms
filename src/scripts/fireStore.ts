@@ -1,13 +1,11 @@
 // NPM packages
+import { Firestore, DocumentData } from "firebase/firestore/lite";
+import { collection, getDocs } from "firebase/firestore/lite";
 import {
-  Firestore,
-  collection,
-  getDocs,
   addDoc,
   doc,
   deleteDoc,
   updateDoc,
-  DocumentData,
   setDoc,
 } from "firebase/firestore/lite";
 
