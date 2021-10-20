@@ -8,13 +8,27 @@ import {
   deleteDoc,
   updateDoc,
   DocumentData,
+  setDoc,
 } from "firebase/firestore/lite";
+
+import { firestoreInstance } from "./firebase";
 
 // Create doc with auto id
 export async function createDoc(db: Firestore, path: string, data: object) {
   const collectionReference = collection(db, path);
 
   await addDoc(collectionReference, data);
+}
+
+export async function createDocumentWithId(
+  path: string,
+  id: string,
+  data: object
+) {
+  const documentReference = doc(firestoreInstance, path, id);
+  await setDoc(documentReference, data);
+
+  return id;
 }
 
 // Read files

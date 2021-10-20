@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Landing />
-        {/* <Switch>{loggedIn ? <Logged /> : <Unlogged />}</Switch> */}
+        <Switch>{loggedIn ? <Logged /> : <Unlogged />}</Switch>
+        {/* <Landing /> */}
       </BrowserRouter>
     </div>
   );

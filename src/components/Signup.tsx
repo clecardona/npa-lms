@@ -8,6 +8,7 @@ import fields from "assets/fields-signup.json";
 import InputField from "./shared/InputField";
 import { createAccount } from "scripts/auth";
 import { useAuth } from "state/AuthProvider";
+import { createDocumentWithId } from "scripts/fireStore";
 
 export default function Signup() {
   //Local states
@@ -29,10 +30,10 @@ export default function Signup() {
     account.isCreated ? onSuccess(account.payload) : onFailure(account.payload);
   }
 
-  function onSuccess(uid) {
-    const newUser = { username: form.username };
+  async function onSuccess(uid) {
+    const newUser = { username: form.username, role: "student" };
     // 1.TODO create a user in the database using the UID as the document id.
-
+    await createDocumentWithId("users", uid, newUser);
     // 2. update global state: user and loggedin
     setLoggedIn(true);
     setUser(newUser);
