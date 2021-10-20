@@ -10,12 +10,17 @@
         left: 0
         height: 100vh
         width: 100vw
-        max-width: 600px
+        max-width: 900px
 
         object-fit: cover
     .hero-arrow
         @include absolute-horizontal-centered
         bottom: 10px
+        img
+            &:hover
+                transition: ease .3s
+                transform: scale(1.2)
+
     .bloc
         position: absolute
         bottom: 60px
@@ -30,8 +35,15 @@
         grid-template-rows: min-content 50px min-content
         grid-template-areas: "title title" "subtitle subtitle" "signup login"
 
-        h1
+        .title
             grid-area: title
+            display: flex
+            align-items: center
+
+            img
+                width: 34px
+                height: 34px
+                margin-left: 6px
 
         h2
             grid-area: subtitle
@@ -49,6 +61,7 @@
             width: 300px
 
 section
+    padding: 5em 0
     article
 
         display: grid
@@ -57,17 +70,21 @@ section
         grid-template-areas: "title ." "subtitle ."
 
         padding: 1em
-        margin: 10em auto
+        margin: 0 auto
+        margin-bottom: 10em
 
         max-width: 600px
-        height: 200px
+        height: 250px
 
         h2,p
             transform: rotate(-4deg)
 
         h2
             grid-area: title
-            padding: 6px 0
+            padding: 6px 12px
+            align-self: flex-end
+            background: $yellow
+            width: max-content
 
         p
             grid-area: subtitle
@@ -85,21 +102,29 @@ section
             width: 100vw
             display: grid
             grid-template-columns: 1fr 70%
-            grid-template-areas: " .image "
-            img
-                grid-area: image
+            grid-template-areas: " logo illustration "
+
+            .illustration
+                grid-area: illustration
                 justify-self: center
                 align-self: center
                 width: 100%
+
+            .logo
+                grid-area: logo
+                justify-self: center
+                align-self: center
+                opacity: .1
+                height: 100px
+                transform: rotate(-4deg)
 
         &:nth-last-child(odd)
             grid-template-columns: 1fr 70%
             grid-template-areas: ".title " ".subtitle "
             h2,p
                 text-align: right
-            p
                 justify-self: flex-end
 
             .img-container
                 grid-template-columns: 70% 1fr
-                grid-template-areas: " image ."
+                grid-template-areas: " illustration logo"

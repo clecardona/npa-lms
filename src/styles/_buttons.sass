@@ -13,11 +13,12 @@ button
 
 .btn-main
   $color: $gray2
-  $secondcolor: $white
+  $secondcolor: $yellow
 
   background: $color
   border: 1px solid $color
-  transform: skewX(-20deg)
+  transform: skewX(-20deg) translateY(-2px)
+  box-shadow: 3px 3px 0 orange
 
   h3,h4
     color: $secondcolor
@@ -31,11 +32,9 @@ button
     filter: invert(1)
 
   &:hover
-    background: $white
-    border-color: $white
-    transition: ease 0.3s
-    h3,h4
-      color: $color
+    transform: skewX(-20deg)
+    box-shadow: unset
+    transition: ease 0.1s
 
   &:disabled
     filter: saturate(0)
@@ -45,10 +44,11 @@ button
   $color: $gray2
   $secondcolor: $white
 
-  transform: skewX(-20deg)
+  transform: skewX(-20deg) translateY(-2px)
 
   background: none
   border: 2px solid $color
+  box-shadow: 3px 3px 0 orange
 
   h3,h4
     color: $color
@@ -62,11 +62,9 @@ button
     filter: invert(0.5) sepia(1) saturate(5) hue-rotate(-45deg)
 
   &:hover
-    transition: ease 0.3s
-    background: $color
-    border-color: $color
-    h3,h4
-      color: $secondcolor
+    transform: skewX(-20deg)
+    transition: ease 0.1s
+    box-shadow: unset
     .icon-btn
       filter: invert(1)
 

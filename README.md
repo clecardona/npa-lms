@@ -54,3 +54,7 @@ These are the instructions to run the project:
 ### 4.5 Component tree
 
 [Whimsical Component Tree](https://whimsical.com/component-tree-YK2EpozWkxanM1UQiiGZb)
+
+## 5. Credits
+
+@davidflanagan
