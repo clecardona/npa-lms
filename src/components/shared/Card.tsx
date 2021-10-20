@@ -1,38 +1,22 @@
 //@ts-nocheck
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 interface MyProps {
   data: object;
 }
-
 const Card: FC<MyProps> = ({ data }) => {
-  //Components
-  const Files = data.files.map((item) => {
-    return (
-      <li key={item}>
-        <a href={item} rel="noreferrer" target="_blank">
-          {item}
-        </a>
-      </li>
-    );
-  });
-  const Links = data.links.map((item) => {
-    return (
-      <li key={item}>
-        <a href={item} rel="noreferrer" target="_blank">
-          {item}
-        </a>
-      </li>
-    );
-  });
-
   return (
-    <div className="card">
-      <h2>{data.title}</h2>
-      <p>{data.description}</p>
-      <ul className="files">{Files}</ul>
-      <ul className="links">{Links}</ul>
-    </div>
+    <Link to={"/courses/" + data.id} className="card">
+      <h2 className="title">{data.title}</h2>
+      <p className="description">{data.description}</p>
+      <img src={data.imageURL} alt="img" />
+      <div className="menu">
+        <h3>Edit</h3>
+        <h3>Delete</h3>
+        <h3>View</h3>
+      </div>
+    </Link>
   );
 };
 

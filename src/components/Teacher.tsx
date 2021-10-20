@@ -29,7 +29,9 @@ export default function Teacher() {
         <>
           <Identificator username="clecardona" role="teacher" />
           <Sorter hook={[selection, setSelection]} />
-          {selection === "courses" && <section>{Courses}</section>}
+          {selection === "courses" && (
+            <section className="cards">{Courses}</section>
+          )}
           {selection === "students" && <section>Students</section>}
         </>
       )}
