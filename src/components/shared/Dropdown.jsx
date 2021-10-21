@@ -1,36 +1,30 @@
 import { useState } from "react";
-import down from "../../assets/icns/down.svg";
-import burger from "assets/icns/burger.png";
+import down from "../../assets/icns/down.png";
+import calendar from "assets/icns/calendar.png";
+import logout from "assets/icns/logout.png";
 
 export default function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="dropdown">
+    <div className={isOpen ? "dropdown dropdown-open" : "dropdown"}>
       <div className="buttons">
+        <button type="button" className="btn calendar ">
+          <img src={calendar} alt="." />
+          <h4>See calendar</h4>
+        </button>
+        <button type="button" className="btn logout">
+          <img src={logout} alt="." />
+          <h4>Logout</h4>
+        </button>
         <button
           type="button"
-          className="btn "
+          className="btn open"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <img src={burger} alt="." />
-        </button>
-        <button type="button" className="btn btn-main ">
-          <img src={down} alt="." />
-        </button>
-        <button type="button" className="btn btn-main">
           <img src={down} alt="." />
         </button>
       </div>
-
-      {isOpen && (
-        <div className="caret">
-          <ul>
-            <li className="dropdown-item">logout</li>
-            <li className="dropdown-item">other action</li>
-          </ul>
-        </div>
-      )}
     </div>
   );
 }
