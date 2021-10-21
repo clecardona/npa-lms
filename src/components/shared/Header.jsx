@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import logo from "assets/icns/bale-logo.png";
-import burger from "assets/icns/burger.png";
+import Dropdown from "./Dropdown";
 
 export default function Header() {
   return (
@@ -14,7 +14,7 @@ export default function Header() {
           </h1>
         </NavLink>
         <div className="burger">
-          <img src={burger} alt="." />
+          <Dropdown />
         </div>
       </nav>
     </header>
