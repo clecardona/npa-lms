@@ -37,36 +37,47 @@
 
         .open
             grid-area: open
-            transform: scaleY(.8)
 
 .dropdown-open
     height: min-content
 
     background: black
     border-radius: 0 0 0 8px
+    padding-bottom: .3em
     .buttons
         width: 100%
         display: grid
         grid-template-columns: 1fr
-        grid-template-rows: repeat(3,50px)
-        grid-template-areas: "open" "calendar" "logout"
+        grid-template-rows: 50px 15px 50px 50px
+        grid-template-areas: "open" "." "calendar" "logout"
 
         .calendar
             grid-area: calendar
+
         .logout
             grid-area: logout
         .open
+            width: 100%
             grid-area: open
             justify-content: flex-end
+            display: flex
+            align-items: center
+            border-bottom: 1px solid $gray2
+            h4
+                width: 100%
+                text-align: center
+
+            button
+                width: min-content
 
         button
             width: 100%
             display: flex
             justify-content: flex-start
 
-            h4
-                display: block
-                color: white
-                margin: 0 1em
-            &:hover
-                //background: red
+        h4
+            display: block
+            color: $yellow
+            margin: 0 1em
+        &:hover
+            //background: red

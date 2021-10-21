@@ -9,9 +9,9 @@ export default function Header() {
       <nav>
         <NavLink to="/" className="home">
           <img src={logo} alt="Home" />
-          <h1>
+          <h2>
             Foot<strong>X</strong>
-          </h1>
+          </h2>
         </NavLink>
         <div className="burger">
           <Dropdown />
