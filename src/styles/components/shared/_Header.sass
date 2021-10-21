@@ -1,82 +1,41 @@
 header
-  z-index: 10
   height: $header-height
-
-  display: flex
-  justify-content: flex-start
-  align-items: center
-
+  padding: 0 2em
   background: $black
-  overflow: hidden
-  box-shadow: 0px 2px 4px rgba(0,0 ,0 ,0.3 )
+  color: $white
+  nav
+    z-index: 10
+    width: 100%
+    height: 100%
 
-  .active
-    border-bottom: 1px solid $white
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+
+    overflow: hidden
+    box-shadow: 0px 2px 4px rgba(0,0 ,0 ,0.3 )
 
   .home
     $home-width: 110px
-    background: $white
     height: 100%
     width: $home-width
     border: none
-    @include flex-full-centered
-    &:hover
-      background: $red
-      .home-shape
-        border-left: 20px solid $red
-      img
-        filter: invert(1)
+
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
 
     img
       height: 28px
+      filter: invert(1)
 
-    .home-shape
-      z-index: 3
-      position: absolute
-      left: $home-width
-      top: -$header-height
-      height: 0px
-      width: 0px
-      border: $header-height solid transparent
-      border-left: 20px solid $white
-      background: transparent
+  .burger
+    @include flex-full-centered
+    height: 100%
+    border: none
 
-  .logo
-    display: none
-    @media screen and (min-width: 650px)
-      display: block
-      width: 100px
-      margin-left: 10vw
-
-      filter: brightness(0.8)
-
-  nav
-    background: transparent
-    padding: 18px
-    position: absolute
-    top: 0
-    right: 0
-    height: $header-height
-    width: calc(100% - 100px)
-    max-width: 400px
-
-    z-index: 10
-    display: grid
-    justify-content: center
-    justify-items: center
-    align-items: center
-
-    grid-template-columns: repeat(3,1fr)
-    gap: 1rem
-
-    a
-      cursor: pointer
-      width: min-content
-      color: $grayLight
-      text-transform: capitalize
-      font-size: 14px
-      padding: 6px
-      border-bottom: 1px solid transparent
-      &:hover
-        border-bottom: 1px solid white
-        transition: ease .3s
+    img
+      height: 20px
+      filter: invert(1)
