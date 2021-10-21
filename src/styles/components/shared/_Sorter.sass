@@ -3,25 +3,16 @@
     margin: 18px 0
     display: flex
     justify-content: center
-
     width: 100%
     .btn
-
-        width: 170px
-        border-radius: 8px
+        width: 140px
+        margin: 0 6px
 
     .btn-inactive
-        h4
-            color: $red
-            font-weight: 300
         &:hover
-            border: 1px solid $red
             transition: .3s ease
 
     .btn-active
-        border: 1px solid $red
-
-        margin: 0 6px
-        h4
-            color: $red
-            font-weight: 300
+        transform: skewX(-20deg) translateY(0)
+        box-shadow: unset
+        background: orange

@@ -1,7 +1,7 @@
 //@ts-nocheck
 //NPM Packages
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 //Local imports
 import fields from "assets/fields-signup.json";
@@ -55,11 +55,19 @@ export default function Signup() {
   ));
 
   return (
-    <div>
+    <main className="page-login signup ">
       <form onSubmit={onSubmit}>
         {Fields}
-        <button>Create account</button>
+        <button className="btn btn-main">
+          <h4>signup</h4>
+        </button>
       </form>
-    </div>
+      <p className="optional-action">
+        Forgot password ? :
+        <Link to="/recover">
+          <strong> Recover </strong>{" "}
+        </Link>
+      </p>
+    </main>
   );
 }

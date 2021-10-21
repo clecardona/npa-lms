@@ -5,49 +5,30 @@ import { useCourses } from "state/CoursesProvider";
 import useFetch from "hooks/useFetch";
 import Spinner from "./shared/Spinner";
 import BoxError from "./shared/BoxError";
+import Files from "./shared/Files";
+import Identificator from "./shared/Identificator";
+import Links from "./shared/Links";
 
 export default function Course() {
   const { courseID } = useParams();
   const { dispatch } = useCourses();
   const courses = useFetch("courses", dispatch);
+  // Const
+  const course = getCourseById(courseID, courses.data);
 
-  //const course = getCourseById(courseID, courses);
-
-  //console.log(course);
-
-  //Components
-  /* const Files = data.files.map((item) => {
-    return (
-      <li key={item}>
-        <a href={item} rel="noreferrer" target="_blank">
-          {item}
-        </a>
-      </li>
-    );
-  }); */
-  /*  const Links = data.links.map((item) => {
-    return (
-      <li key={item}>
-        <a href={item} rel="noreferrer" target="_blank">
-          {item}
-        </a>
-      </li>
-    );
-  }); */
   return (
-    <div>
-      COURSE {courseID}
-      {/* <ul className="files">{Files}</ul>
-      <ul className="links">{Links}</ul> */}
+    <div className="page-course">
+      <Identificator role="student" username="leomessi" />
+
       {courses.loading === true && <Spinner />}
       {courses.error !== null && <BoxError />}
       {(!courses.loading && courses.error) === null && (
-        <p>{getCourseById(courseID, courses.data).title}</p>
+        <>
+          <h2>{course.title}</h2>
+          <Files data={course} />
+          <Links data={course} />
+        </>
       )}
     </div>
   );
 }
-
-/* {courses.loading === true && <Spinner />}
-      {courses.error !== null && <BoxError />}
-      {(!courses.loading && courses.error) === null && ()} */

@@ -7,16 +7,18 @@ interface MyProps {
 }
 const Card: FC<MyProps> = ({ data }) => {
   return (
-    <Link to={"/courses/" + data.id} className="card">
+    <div className="card">
       <h2 className="title">{data.title}</h2>
       <p className="description">{data.description}</p>
       <img src={data.imageURL} alt="img" />
       <div className="menu">
         <h3>Edit</h3>
         <h3>Delete</h3>
-        <h3>View</h3>
+        <Link to={"/courses/" + data.id}>
+          <h3>View</h3>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 };
 

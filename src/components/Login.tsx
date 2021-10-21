@@ -33,14 +33,19 @@ export default function Login() {
   ));
 
   return (
-    <div>
+    <main className="page-login">
       <form onSubmit={onSubmit}>
         {Fields}
-        <button>Login</button>
+        <button className="btn btn-main">
+          <h4>Login</h4>
+        </button>
       </form>
-      <p>
-        Not registered ?<Link to="/signup"> Create an account</Link>
+      <p className="optional-action">
+        Not registered ?
+        <Link to="/signup">
+          <strong> Create an account</strong>{" "}
+        </Link>
       </p>
-    </div>
+    </main>
   );
 }

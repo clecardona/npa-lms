@@ -3,7 +3,11 @@ export default function SortButton({ children, target, hook }) {
 
   return (
     <button
-      className={selection === target ? "btn btn-active " : "btn btn-inactive"}
+      className={
+        selection === target
+          ? "btn btn-ghost btn-active "
+          : "btn btn-ghost btn-inactive"
+      }
       onClick={() => {
         setSelection(target);
       }}
