@@ -1,5 +1,5 @@
 // NPM packages
-import { Firestore, DocumentData } from "firebase/firestore/lite";
+import { Firestore, DocumentData, getDoc } from "firebase/firestore/lite";
 import { collection, getDocs } from "firebase/firestore/lite";
 import {
   addDoc,
@@ -38,6 +38,12 @@ export async function getCollection(db: Firestore, path: string) {
   });
 
   return list;
+}
+
+export async function getDocument(path: string, id: string) {
+  const documentReference = doc(firestoreInstance, path, id);
+  const document = await getDoc(documentReference);
+  return { id: document.id, ...document.data() };
 }
 
 // Update file

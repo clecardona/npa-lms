@@ -1,15 +1,24 @@
 //@ts-nocheck
 //NPM Packages
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 //Local imports
 import fields from "assets/fields-login.json";
 import InputField from "./shared/InputField";
+import { signIn } from "scripts/auth";
+import { getDocument } from "scripts/fireStore";
+import { useAuth } from "state/AuthProvider";
 
 export default function Login() {
+  // Global states
+  const { setLoggedIn, setUser } = useAuth();
+  const history = useHistory();
+
   //Local states
   const [form, setForm] = useState({ email: "", password: "" });
+  const [remember, setRemember] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Methods
   function onChange(key, value) {
@@ -17,11 +26,24 @@ export default function Login() {
     setForm({ ...form, ...field });
   }
 
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault();
-    alert("submit");
+    setErrorMessage("");
+    const account = await signIn(form.email, form.password);
+    account.isLogged ? onSuccess(account.payload) : onFailure(account.payload);
+    alert("logged in");
   }
 
+  async function onSuccess(uid) {
+    const document = await getDocument("users", uid);
+    setUser(document);
+    setLoggedIn(true);
+    history.push("/");
+  }
+
+  function onFailure(code) {
+    setErrorMessage(code);
+  }
   //Components
   const Fields = fields.map((item) => (
     <InputField
@@ -36,6 +58,7 @@ export default function Login() {
     <main className="page-login">
       <form onSubmit={onSubmit}>
         {Fields}
+        <p>{errorMessage}</p>
         <button className="btn btn-main">
           <h4>Login</h4>
         </button>
@@ -43,7 +66,7 @@ export default function Login() {
       <p className="optional-action">
         Not registered ?
         <Link to="/signup">
-          <strong> Create an account</strong>{" "}
+          <strong> Create an account</strong>
         </Link>
       </p>
     </main>

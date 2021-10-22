@@ -6,12 +6,14 @@ import Teacher from "components/Teacher";
 import Student from "components/Student";
 import Login from "components/Login";
 import SignUp from "components/Signup";
+import Header from "components/shared/Header";
 
 export default function Logged() {
   const isTeacher = true;
   return (
     <>
-      <Route exact path="/" component={isTeacher ? <Teacher /> : <Student />} />
+      <Header />
+      <Route exact path="/" component={isTeacher ? Teacher : Student} />
       <Route component={Login} path="/login" />
       <Route component={SignUp} path="/signup" />
     </>
