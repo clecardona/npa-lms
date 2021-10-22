@@ -11,14 +11,14 @@ import Links from "./shared/Links";
 
 export default function Course() {
   const { courseID } = useParams();
-  const { dispatch } = useCourses();
-  const courses = useFetch("courses", dispatch);
+  const { dispatchCourses } = useCourses();
+  const courses = useFetch("courses", dispatchCourses);
   // Const
   const course = getCourseById(courseID, courses.data);
 
   return (
     <div className="page-course">
-      <Identificator role="student" username="leomessi" />
+      <Identificator role="student" username="leomessi-HC" />
 
       {courses.loading === true && <Spinner />}
       {courses.error !== null && <BoxError />}

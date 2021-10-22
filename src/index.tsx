@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App";
 import { AuthProvider } from "state/AuthProvider";
 import { CoursesProvider } from "state/CoursesProvider";
+import { UsersProvider } from "state/UsersProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <CoursesProvider>
-        <App />
+        <UsersProvider>
+          <App />
+        </UsersProvider>
       </CoursesProvider>
     </AuthProvider>
   </React.StrictMode>,

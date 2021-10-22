@@ -1,11 +1,11 @@
 //@ts-nocheck
-export default function foodReducer(state, action) {
+export default function coursesReducer(state, action) {
   switch (action.type) {
     case "CREATE_COURSE":
       return createCourse(state, action);
     case "UPDATE_COURSE":
       return updateCourse(state, action);
-    case "SET_COURSES":
+    case "SET_DATA":
       return setCourses(action);
     default:
       throw new Error(`No action type found ${action.type}`);

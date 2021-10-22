@@ -27,7 +27,7 @@ const Articles = articles.map((item) => {
 
 export default function Landing() {
   return (
-    <>
+    <div className="page-landing">
       <div className="hero">
         <img className="bg" src={hero} alt="hero" />
         <a href="#articles" className="hero-arrow">
@@ -51,6 +51,6 @@ export default function Landing() {
         </div>
       </div>
       <section id="articles">{Articles}</section>
-    </>
+    </div>
   );
 }

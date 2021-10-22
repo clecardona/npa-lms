@@ -8,12 +8,16 @@ import Identificator from "./shared/Identificator";
 import Spinner from "./shared/Spinner";
 import BoxError from "./shared/BoxError";
 import Card from "./shared/Card";
+import Modal from "./shared/Modal";
+import StudentList from "./StudentList";
 
 export default function Teacher() {
+  const [isOpen, setIsOpen] = useState(false);
   const [selection, setSelection] = useState("courses");
-  const { dispatch } = useCourses();
-  const courses = useFetch("courses", dispatch);
-  //const students = useFetch("users", dispatch); TODO - get students
+  const { dispatchCourses } = useCourses();
+  const courses = useFetch("courses", dispatchCourses);
+  //const students = useFetch("users", dispatchUsers); TODO - get students
+  //const students = getStudents(users)
 
   //Components
   const Courses = courses.data.map((item) => {
@@ -27,12 +31,23 @@ export default function Teacher() {
 
       {(!courses.loading && courses.error) === null && (
         <>
-          <Identificator username="clecardona" role="teacher" />
+          <Identificator username="clecardona -HC" role="teacher" />
           <Sorter hook={[selection, setSelection]} />
           {selection === "courses" && (
-            <section className="cards">{Courses}</section>
+            <>
+              <section className="cards">{Courses}</section>
+              <button
+                className="btn btn-main btn-300"
+                onClick={() => setIsOpen(true)}
+              >
+                <h4>New Course</h4>
+              </button>
+              <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                New course
+              </Modal>
+            </>
           )}
-          {selection === "students" && <section>Students</section>}
+          {selection === "students" && <StudentList />}
         </>
       )}
     </main>

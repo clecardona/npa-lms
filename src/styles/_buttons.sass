@@ -96,32 +96,21 @@ input[type="submit"]
   background: $red
   color: $white
 
-.select-ghost
-  display: flex
-  justify-content: space-between
-  align-items: center
-  padding: 0 24px
+.btn-300
+  width: 300px
 
-  background: none
-  border: 2px solid $red
-  border-radius: 8px
-  width: 100%
+.btn-140
+  width: 140px
 
-  h4
-    color: $red
-    text-transform: capitalize
-    font-weight: 400
-
-  .dropdown-arrow
-    width: 20px
-    height: 20px
-    margin: 6px
-    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(-45deg)
-
+.btn-delete
+  background: $red
+  color: $white
+  filter: brightness(.9)
+  box-shadow: 2px 2px 0 red
+  img
+    width: 24px
+    filter: invert(1)
+    transform: skewX(20deg)
+    margin: 0 .5em
   &:hover
-    transition: ease 0.3s
-    background: $red
-    h4
-      color: $white
-    .dropdown-arrow
-      filter: invert(0)
+    filter: brightness(1)

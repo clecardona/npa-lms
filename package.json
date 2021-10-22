@@ -17,7 +17,8 @@
     "react-scripts": "4.0.3",
     "sass": "^1.43.2",
     "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "react-transition-group-v1": "npm:react-transition-group@1.x",
+    "moment": "^2.29.1"
   },
   "scripts": {
     "start": "react-scripts start",

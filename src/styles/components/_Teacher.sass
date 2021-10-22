@@ -1,5 +1,10 @@
 .page-teacher
     background: $yellow
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    padding-bottom: 1em
     .cards
         max-width: 600px
         margin: 0 auto
@@ -13,17 +18,20 @@
             background: $white
             color: $black
 
-            width: 280px
+            min-width: 280px
+            width: 100%
+            max-width: 500px
             height: $card-height
+            //transform: skewX(-20deg)
+            border-radius: 1em
 
             display: grid
             grid-template-columns: 2fr 1fr
             grid-template-rows: min-content 1fr min-content
 
             grid-template-areas: "title img""description img ""menu menu"
-            @include shadow-card
-            @media only screen and (min-width: $tabletBreakpoint)
-                width: 100%
+            & *
+                //transform: skewX(20deg)
 
             img
                 grid-area: img
@@ -53,7 +61,6 @@
             .menu
                 grid-area: menu
                 background: $black
-                color: $white
 
                 height: 50px
 
@@ -62,7 +69,12 @@
 
                 justify-items: center
                 align-items: center
-                a:hover
-                    //transform: scale(1.1)
-                    transition: .2s ease
-                    color: $yellow
+                a,button
+                    color: $white
+                    &:hover
+                        transition: .2s ease
+                        color: $yellow
+
+    .btn .btn-300
+        h3
+            color: $yellow

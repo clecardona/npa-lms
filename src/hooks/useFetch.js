@@ -12,7 +12,7 @@ export default function useFetch(collection, dispatch) {
   async function fetchData(someDatabase, someCollection) {
     try {
       const response = await getCollection(someDatabase, someCollection);
-      dispatch({ type: "SET_COURSES", payload: someCollection });
+      dispatch({ type: "SET_DATA", payload: someCollection });
       setData(response);
     } catch (e) {
       setError(e);
