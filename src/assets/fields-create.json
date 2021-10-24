@@ -8,7 +8,13 @@
   {
     "key": "description",
     "label": "Description",
-    "placeholder": "Describe the course here",
+    "placeholder": "Short description",
+    "type": "text"
+  },
+  {
+    "key": "content",
+    "label": "Course content",
+    "placeholder": "Course content",
     "type": "text"
   },
   {

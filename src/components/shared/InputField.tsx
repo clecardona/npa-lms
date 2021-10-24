@@ -6,7 +6,7 @@ export default function InputField({ onChange, options, state }) {
   // Properties
   const inputReference = useRef(null);
   return (
-    <label>
+    <label className={key}>
       {label}
       <input
         ref={inputReference}

@@ -1,11 +1,11 @@
 import React from "react";
 
 export default function Files({ data }) {
-  const Files = data.files.map((item) => {
+  const Files = data.files.map((item, index) => {
     return (
       <li key={item}>
         <a href={item} rel="noreferrer" target="_blank">
-          {item}
+          <h4>Download File {index + 1}</h4>
         </a>
       </li>
     );
@@ -13,7 +13,6 @@ export default function Files({ data }) {
 
   return (
     <div className="files">
-      <h3>Files :</h3>
       <ul>{Files}</ul>
     </div>
   );

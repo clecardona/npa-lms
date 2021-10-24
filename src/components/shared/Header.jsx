@@ -16,7 +16,7 @@ export default function Header() {
     setLoggedIn(false);
     history.push("/login");
   }
-  console.log(user.id);
+
   return (
     <header>
       <nav>

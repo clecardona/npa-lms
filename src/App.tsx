@@ -14,10 +14,8 @@ import BoxError from "components/shared/BoxError";
 
 export default function App() {
   // Global state
-  const { user, loggedIn, setLoggedIn, setUser } = useAuth();
-  //const loggedIn = true;
-  console.log(user);
-  console.log(localStorage.getItem("uid"));
+  const { loggedIn, setLoggedIn, setUser } = useAuth();
+
   //Local state
   const [status, setStatus] = useState(0); // 0 loading, 1 ready, 2 error
 
