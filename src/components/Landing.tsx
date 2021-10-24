@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 import hero from "assets/img/hero.png";
 import arrowDown from "assets/icns/arrowDown.png";
-import flip from "assets/icns/football/flip.png";
+import flip from "assets/icns/kickout.png";
 import articles from "assets/home/articles.json";
 
 //Components
@@ -12,23 +12,21 @@ const Articles = articles.map((item) => {
   const imgPath = require("assets/img/" + item.imageURL);
   const logoPath = require("assets/icns/football/" + item.logoURL);
   return (
-    <>
-      <article key={item.title}>
-        <h2>{item.title}</h2>
-        <p>{item.description}</p>
-        <div className="img-container">
-          <img className="illustration" src={imgPath.default} alt="img" />
-          <img className="logo" src={logoPath.default} alt="img" />
-        </div>
-      </article>
-    </>
+    <article key={item.imageURL}>
+      <h2>{item.title}</h2>
+      <p>{item.description}</p>
+      <div className="img-container">
+        <img className="illustration" src={imgPath.default} alt="img" />
+        <img className="logo" src={logoPath.default} alt="img" />
+      </div>
+    </article>
   );
 });
 
 export default function Landing() {
   return (
     <div className="page-landing">
-      <div className="hero">
+      <div className="hero" id="hero">
         <img className="bg" src={hero} alt="hero" />
         <a href="#articles" className="hero-arrow">
           <img src={arrowDown} alt="aaa" />
@@ -51,6 +49,9 @@ export default function Landing() {
         </div>
       </div>
       <section id="articles">{Articles}</section>
+      <a href="#hero" className="up-arrow">
+        <img src={arrowDown} alt="aaa" />
+      </a>
     </div>
   );
 }

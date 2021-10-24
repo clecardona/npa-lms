@@ -7,9 +7,11 @@ import Student from "components/Student";
 import Login from "components/Login";
 import SignUp from "components/Signup";
 import Header from "components/shared/Header";
+import { useAuth } from "state/AuthProvider";
 
 export default function Logged() {
-  const isTeacher = true;
+  const { user } = useAuth();
+  const isTeacher = user.role === "teacher";
   return (
     <>
       <Header />

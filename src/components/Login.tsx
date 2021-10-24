@@ -31,13 +31,13 @@ export default function Login() {
     setErrorMessage("");
     const account = await signIn(form.email, form.password);
     account.isLogged ? onSuccess(account.payload) : onFailure(account.payload);
-    alert("logged in");
   }
 
   async function onSuccess(uid) {
     const document = await getDocument("users", uid);
     setUser(document);
     setLoggedIn(true);
+    if (remember) localStorage.setItem("uid", uid);
     history.push("/");
   }
 
@@ -59,6 +59,14 @@ export default function Login() {
       <form onSubmit={onSubmit}>
         {Fields}
         <p>{errorMessage}</p>
+        <label className="remember">
+          <input
+            type="checkbox"
+            checked={remember}
+            onChange={() => setRemember(!remember)}
+          />
+          <h4>Remember me</h4>
+        </label>
         <button className="btn btn-main">
           <h4>Login</h4>
         </button>
