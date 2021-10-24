@@ -34,8 +34,19 @@ export default function Course() {
             <h2>{course.title}</h2>
             <img src={course.imageURL} alt="img" className="illustration" />
             <p className="description">{course.content}</p>
-            <Links data={course} />
-            <Files data={course} />
+            {/* <Links data={course} /> */}
+            <a
+              href={course.link}
+              target="_blank"
+              className="links"
+              rel="noreferrer"
+            >
+              <h4>External link ...</h4>
+            </a>
+            {/* <Files data={course} /> */}
+            <a href={course.file} className="files" download>
+              <h4>Download file ⬇</h4>
+            </a>
             <Link to="/" className="btn btn-main btn-140">
               <h4>Back</h4>
             </Link>

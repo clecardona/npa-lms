@@ -5,6 +5,7 @@ import hero from "assets/img/hero.png";
 import arrowDown from "assets/icns/arrowDown.png";
 import flip from "assets/icns/kickout.png";
 import articles from "assets/home/articles.json";
+import VideoBG from "components/VideoBG";
 
 //Components
 
@@ -27,7 +28,7 @@ export default function Landing() {
   return (
     <div className="page-landing">
       <div className="hero" id="hero">
-        <img className="bg" src={hero} alt="hero" />
+        <VideoBG />
         <a href="#articles" className="hero-arrow">
           <img src={arrowDown} alt="aaa" />
         </a>

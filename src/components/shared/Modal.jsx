@@ -3,6 +3,7 @@ import cross from "assets/icns/cross.png";
 
 import AnimateContainer from "./AnimateContainer";
 import CreateForm from "components/CreateForm";
+import EditForm from "components/EditForm";
 
 export default function Modal({ isOpen, onClose, data, children, type }) {
   if (!isOpen) return null;
@@ -19,7 +20,7 @@ export default function Modal({ isOpen, onClose, data, children, type }) {
             </button>
           </div>
           {type === "create" && <CreateForm onClose={onClose} />}
-          {/* {type === "edit" && <EditForm />} */}
+          {type === "edit" && <EditForm onClose={onClose} data={data} />}
         </div>
       </AnimateContainer>
     </>,
