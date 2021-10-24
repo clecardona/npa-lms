@@ -1,9 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 import logo from "assets/icns/bale-logo.png";
 import Dropdown from "./Dropdown";
+import { useAuth } from "state/AuthProvider";
 
 export default function Header() {
+  // Global state
+  const { user, setUser, setLoggedIn } = useAuth();
+  const history = useHistory();
+
+  // Methods
+  function onLogout() {
+    localStorage.setItem("uid", "");
+    setUser({});
+    setLoggedIn(false);
+    history.push("/login");
+  }
+  console.log(user.id);
   return (
     <header>
       <nav>
@@ -13,9 +26,7 @@ export default function Header() {
             Foot<strong>X</strong>
           </h2>
         </NavLink>
-        <div className="burger">
-          <Dropdown />
-        </div>
+        <Dropdown onLogout={onLogout} />
       </nav>
     </header>
   );

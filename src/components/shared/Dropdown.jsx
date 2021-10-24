@@ -3,9 +3,11 @@ import down from "../../assets/icns/down.png";
 import calendar from "assets/icns/calendar.png";
 import logout from "assets/icns/logout.png";
 import cross from "assets/icns/cross.png";
+import { useAuth } from "state/AuthProvider";
 
-export default function Dropdown() {
+export default function Dropdown({ onLogout }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth();
 
   return (
     <div className={isOpen ? "dropdown dropdown-open" : "dropdown"}>
@@ -14,12 +16,12 @@ export default function Dropdown() {
           <img src={calendar} alt="." />
           <h4>See calendar</h4>
         </button>
-        <button type="button" className="btn logout">
+        <button type="button" className="btn logout" onClick={onLogout}>
           <img src={logout} alt="." />
           <h4>Logout</h4>
         </button>
         <div className="open">
-          <h4>Menu</h4>
+          <h4>@{user.username}</h4>
           <button
             type="button"
             className="btn "

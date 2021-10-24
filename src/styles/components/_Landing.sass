@@ -3,6 +3,13 @@
     height: 100vh
 
     overflow: hidden
+    .hero-arrow
+        @include absolute-horizontal-centered
+        bottom: 10px
+        img
+            &:hover
+                transition: ease .3s
+                transform: scale(1.2)
     .bg
 
         position: absolute
@@ -13,13 +20,6 @@
         max-width: 900px
 
         object-fit: cover
-    .hero-arrow
-        @include absolute-horizontal-centered
-        bottom: 10px
-        img
-            &:hover
-                transition: ease .3s
-                transform: scale(1.2)
 
     .bloc
         position: absolute
@@ -128,3 +128,11 @@
             .img-container
                 grid-template-columns: 70% 1fr
                 grid-template-areas: " illustration logo"
+
+.up-arrow
+    background: red
+    transform: rotate(180deg)
+    img
+        &:hover
+            transition: ease .3s
+            transform: scale(1.2)

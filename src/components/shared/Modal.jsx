@@ -2,8 +2,9 @@ import reactDom from "react-dom";
 import cross from "assets/icns/cross.png";
 
 import AnimateContainer from "./AnimateContainer";
+import CreateForm from "components/CreateForm";
 
-export default function Modal({ isOpen, onClose, data, children }) {
+export default function Modal({ isOpen, onClose, data, children, type }) {
   if (!isOpen) return null;
   return reactDom.createPortal(
     <>
@@ -17,7 +18,8 @@ export default function Modal({ isOpen, onClose, data, children }) {
               <img alt="close" src={cross} />
             </button>
           </div>
-          {/* Form goes here */}
+          {type === "create" && <CreateForm onClose={onClose} />}
+          {/* {type === "edit" && <EditForm />} */}
         </div>
       </AnimateContainer>
     </>,

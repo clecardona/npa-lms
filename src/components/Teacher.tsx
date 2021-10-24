@@ -1,55 +1,27 @@
 //@ts-nocheck
+//NM=PM PAckages
 import { useState } from "react";
-import { useCourses } from "state/CoursesProvider";
-import useFetch from "hooks/useFetch";
 
-import Sorter from "./shared/Sorter";
-import Identificator from "./shared/Identificator";
-import Spinner from "./shared/Spinner";
-import BoxError from "./shared/BoxError";
-import Card from "./shared/Card";
-import Modal from "./shared/Modal";
-import StudentList from "./StudentList";
+//Local imports
+import { useAuth } from "state/AuthProvider";
+import Identificator from "components/shared/Identificator";
+import Sorter from "components/shared/Sorter";
+import CoursesList from "components/CoursesList";
+import StudentList from "components/StudentList";
 
 export default function Teacher() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selection, setSelection] = useState("courses");
-  const { dispatchCourses } = useCourses();
-  const courses = useFetch("courses", dispatchCourses);
-  //const students = useFetch("users", dispatchUsers); TODO - get students
-  //const students = getStudents(users)
+  // Global state
+  const { user } = useAuth();
 
-  //Components
-  const Courses = courses.data.map((item) => {
-    return <Card key={item.id} data={item} />;
-  });
+  //Local state
+  const [selection, setSelection] = useState("courses");
 
   return (
     <main className="page-teacher">
-      {courses.loading === true && <Spinner />}
-      {courses.error !== null && <BoxError />}
-
-      {(!courses.loading && courses.error) === null && (
-        <>
-          <Identificator username="clecardona -HC" role="teacher" />
-          <Sorter hook={[selection, setSelection]} />
-          {selection === "courses" && (
-            <>
-              <section className="cards">{Courses}</section>
-              <button
-                className="btn btn-main btn-300"
-                onClick={() => setIsOpen(true)}
-              >
-                <h4>New Course</h4>
-              </button>
-              <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                New course
-              </Modal>
-            </>
-          )}
-          {selection === "students" && <StudentList />}
-        </>
-      )}
+      <Identificator username={user.username} role={user.role} />
+      <Sorter hook={[selection, setSelection]} />
+      {selection === "courses" && <CoursesList />}
+      {selection === "students" && <StudentList />}
     </main>
   );
 }

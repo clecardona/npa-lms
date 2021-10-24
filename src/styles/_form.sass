@@ -1,38 +1,19 @@
-.page-login
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    background: $yellow
+form
+    max-width: 800px
+    margin: 0 auto
+    display: grid
+    gap: 1em
+    grid-auto-flow: row
+    justify-items: center
+    label
+        display: flex
+        flex-direction: column
+        transform: skewX(-20deg)
 
-    form
-        max-width: 800px
-        margin: 0 auto
-        display: grid
-        gap: 1em
-        grid-auto-flow: row
-        justify-items: center
-        label
-            display: flex
-            flex-direction: column
+        input
 
-            input
-                width: 100%
-                padding-left: 12px
-                margin-top: .3em
+            width: 100%
+            padding-left: 12px
+            margin-top: .3em
         button
             width: 140px
-
-    .optional-action
-        margin: 1.5em
-
-        a:hover
-            border-bottom: 1px solid $gray3
-
-.signup
-    background: $red
-
-    .btn-main
-        box-shadow: 3px 3px 0 red
-        h4
-            color: $red

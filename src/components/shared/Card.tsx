@@ -10,7 +10,13 @@ const Card: FC<MyProps> = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="card">
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} data={data}>
+      <Modal
+        type="edit"
+        data={data}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        data={data}
+      >
         Edit course
       </Modal>
       <h2 className="title">{data.title}</h2>

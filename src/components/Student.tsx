@@ -1,5 +1,12 @@
-import React from "react";
+import Identificator from "./shared/Identificator";
+import { useAuth } from "state/AuthProvider";
 
 export default function Student() {
-  return <div>STUDENT</div>;
+  //const { user } = useAuth();
+
+  return (
+    <main className="page-teacher">
+      {/* <Identificator username={user.username} role={user.role} /> */}AAA
+    </main>
+  );
 }
