@@ -1,34 +1,47 @@
 //@ts-nocheck
-import { useParams } from "react-router-dom";
+//NPM Packages
+import { useParams, Link } from "react-router-dom";
+
+//Local imports
 import { getCourseById } from "scripts/courses";
 import { useCourses } from "state/CoursesProvider";
-import useFetch from "hooks/useFetch";
-import Spinner from "./shared/Spinner";
-import BoxError from "./shared/BoxError";
+import { useAuth } from "state/AuthProvider";
 import Files from "./shared/Files";
 import Identificator from "./shared/Identificator";
 import Links from "./shared/Links";
+import useFetch from "hooks/useFetch";
+import Spinner from "./shared/Spinner";
+import BoxError from "./shared/BoxError";
 
 export default function Course() {
+  // Global State
+  const { user } = useAuth();
+  //Local state
   const { courseID } = useParams();
   const { dispatchCourses } = useCourses();
   const courses = useFetch("courses", dispatchCourses);
-  // Const
+  // Constants
   const course = getCourseById(courseID, courses.data);
 
   return (
-    <div className="page-course">
-      <Identificator role="student" username="leomessi-HC" />
-
-      {courses.loading === true && <Spinner />}
-      {courses.error !== null && <BoxError />}
-      {(!courses.loading && courses.error) === null && (
-        <>
-          <h2>{course.title}</h2>
-          <Files data={course} />
-          <Links data={course} />
-        </>
-      )}
-    </div>
+    <>
+      <Identificator role={user.role} username={user.username} />
+      <main className="page-course">
+        {courses.loading === true && <Spinner />}
+        {courses.error !== null && <BoxError />}
+        {(!courses.loading && courses.error) === null && (
+          <>
+            <h2>{course.title}</h2>
+            <img src={course.imageURL} alt="img" className="illustration" />
+            <p className="description">{course.content}</p>
+            <Links data={course} />
+            <Files data={course} />
+            <Link to="/" className="btn btn-main btn-140">
+              <h4>Back</h4>
+            </Link>
+          </>
+        )}
+      </main>
+    </>
   );
 }
