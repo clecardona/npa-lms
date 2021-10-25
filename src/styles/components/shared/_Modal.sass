@@ -58,3 +58,44 @@
     label
       width: 100%
       color: $white
+
+    .links
+      grid-template-columns: 1fr 100px
+      grid-template-rows: min-content min-content
+      grid-template-areas: "label label" "input button"
+
+      input
+        grid-area: input
+
+      .btn-remove-field
+        filter: brightness(.5)
+        grid-area: button
+        border: 1px solid $red
+        color: $red
+        margin: .3em
+        padding: .3em
+        height: 30px
+        width: 80%
+        img
+          height: 12px
+        &:hover
+          filter: brightness(1)
+          transition: .1s ease
+
+  .btn-add-field
+    filter: brightness(.5)
+    border: 1px solid $yellow
+    margin: .3em
+    padding: .3em
+    height: 30px
+    width: 300px
+    box-shadow: none
+    transform: skewX(-20deg)
+    h4
+      color: $yellow
+    img
+      height: 12px
+    &:hover
+
+      filter: brightness(1)
+      transition: .1s ease

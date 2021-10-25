@@ -23,6 +23,8 @@ export default function Course() {
   // Constants
   const course = getCourseById(courseID, courses.data);
 
+  console.log(course);
+
   return (
     <>
       <Identificator role={user.role} username={user.username} />
@@ -34,19 +36,23 @@ export default function Course() {
             <h2>{course.title}</h2>
             <img src={course.imageURL} alt="img" className="illustration" />
             <p className="description">{course.content}</p>
-            {/* <Links data={course} /> */}
-            <a
+
+            {course.links && <Links data={course.links} />}
+            {/*  <a
               href={course.link}
               target="_blank"
               className="links"
               rel="noreferrer"
             >
               <h4>External link ...</h4>
-            </a>
-            {/* <Files data={course} /> */}
-            <a href={course.file} className="files" download>
-              <h4>Download file ⬇</h4>
-            </a>
+            </a> */}
+            {course.file && (
+              <a href={course.file} className="files" download>
+                <h4>Download file ⬇</h4>
+                {/* <Files data={course} /> */}
+              </a>
+            )}
+
             <Link to="/" className="btn btn-main btn-140">
               <h4>Back</h4>
             </Link>

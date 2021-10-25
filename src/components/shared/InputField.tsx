@@ -1,21 +1,38 @@
 //@ts-nocheck
 import { useRef } from "react";
+import InputFieldMultiple from "./InputFieldMultiple";
+
 export default function InputField({ onChange, options, state }) {
-  const { key, label, placeholder, type, mode } = options;
+  const { key, label, placeholder, type, mode, required } = options;
 
   // Properties
   const inputReference = useRef(null);
+
   return (
-    <label className={key}>
-      {label}
-      <input
-        ref={inputReference}
-        value={state}
-        type={type}
-        placeholder={mode === "edit" ? state : placeholder}
-        required
-        onChange={() => onChange(key, inputReference.current.value)}
-      ></input>
-    </label>
+    <>
+      {key !== "links" && (
+        <label className={key}>
+          {label}
+          <input
+            ref={inputReference}
+            value={state}
+            type={type}
+            placeholder={mode === "edit" ? state : placeholder}
+            required={required}
+            onChange={() => onChange(key, inputReference.current.value)}
+          ></input>
+        </label>
+      )}
+
+      {key === "links" && (
+        <>
+          <InputFieldMultiple
+            onChange={onChange}
+            options={options}
+            state={state}
+          />
+        </>
+      )}
+    </>
   );
 }

@@ -28,19 +28,6 @@ export async function createDocumentWithId(
   return id;
 }
 
-//CREATE CATEGORY
-/* export async function createCategory(someCategory, someImage) {
-  let newImageURL = "";
-  if (typeof someImage === "object") {
-    newImageURL = await uploadImage(firebaseInstance, someImage);
-  } else {
-    newImageURL = someImage;
-  }
-  const newCategory = { ...someCategory, imageURL: newImageURL };
-  createDoc(database, "categories", newCategory);
-  alert(newCategory.title + " successfully added to categories");
-} */
-
 // Read files
 export async function getCollection(db: Firestore, path: string) {
   const collectionReference = collection(db, path);
@@ -59,14 +46,8 @@ export async function getDocument(path: string, id: string) {
 }
 
 // Update file
-export async function updateDocument(
-  db: Firestore,
-  path: string,
-  id: string,
-  data: object
-) {
-  const docReference = doc(db, path, id);
-
+export async function updateDocument(path: string, id: string, data: object) {
+  const docReference = doc(firestoreInstance, path, id);
   await updateDoc(docReference, data as DocumentData);
 }
 

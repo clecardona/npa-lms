@@ -5,20 +5,15 @@ import { useHistory } from "react-router-dom";
 //Local imports
 import fields from "assets/fields-edit.json";
 import InputField from "./shared/InputField";
-import { createDoc } from "scripts/fireStore";
+import { updateDocument } from "scripts/fireStore";
 
 export default function CreateForm({ onClose, data }) {
   //Local states
-  const [form, setForm] = useState({
-    title: "",
-    description: "",
-    link: "",
-    imageURL: "",
-  });
+  const [form, setForm] = useState(data);
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
 
-  console.log(data);
+  console.log(form);
 
   // Methods
   function onChange(key, value) {
@@ -29,7 +24,7 @@ export default function CreateForm({ onClose, data }) {
     e.preventDefault();
     setErrorMessage("");
     const newCourse = { ...form };
-    //await createDoc("courses", newCourse);
+    await updateDocument("courses", newCourse.id, newCourse);
     alert("Course updated");
     onClose();
     history.push("/");
@@ -40,7 +35,7 @@ export default function CreateForm({ onClose, data }) {
     <InputField
       key={item.key}
       options={item}
-      state={data[item.key]}
+      state={form[item.key]}
       onChange={onChange}
     />
   ));

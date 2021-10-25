@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 //Local imports
-import fields from "assets/fields-create.json"; //TODO - edit-form fields
+import fields from "assets/fields-create.json";
 import InputField from "./shared/InputField";
 import { createDoc } from "scripts/fireStore";
 
@@ -12,17 +12,21 @@ export default function CreateForm({ onClose }) {
   const [form, setForm] = useState({
     title: "",
     description: "",
-    link: "",
     imageURL: "",
+    content: "",
+    links: { l1: "", l2: "", l3: "" },
   });
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
+
+  console.log(form.links);
 
   // Methods
   function onChange(key, value) {
     const field = { [key]: value };
     setForm({ ...form, ...field });
   }
+
   async function onSubmit(e) {
     e.preventDefault();
     setErrorMessage("");

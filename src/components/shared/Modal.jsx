@@ -1,7 +1,5 @@
 import reactDom from "react-dom";
 import cross from "assets/icns/cross.png";
-
-import AnimateContainer from "./AnimateContainer";
 import CreateForm from "components/CreateForm";
 import EditForm from "components/EditForm";
 
@@ -11,18 +9,16 @@ export default function Modal({ isOpen, onClose, data, children, type }) {
     <>
       <div className="modal-overlay" onClick={onClose} />
 
-      <AnimateContainer animation="fade-in">
-        <div className="modal">
-          <div className="modal-header">
-            <h2>{children}</h2>
-            <button className="btn-close" onClick={onClose}>
-              <img alt="close" src={cross} />
-            </button>
-          </div>
-          {type === "create" && <CreateForm onClose={onClose} />}
-          {type === "edit" && <EditForm onClose={onClose} data={data} />}
+      <div className="modal">
+        <div className="modal-header">
+          <h2>{children}</h2>
+          <button className="btn-close" onClick={onClose}>
+            <img alt="close" src={cross} />
+          </button>
         </div>
-      </AnimateContainer>
+        {type === "create" && <CreateForm onClose={onClose} />}
+        {type === "edit" && <EditForm onClose={onClose} data={data} />}
+      </div>
     </>,
     document.getElementById("modal")
   );
