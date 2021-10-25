@@ -1,0 +1,40 @@
+.page-playlist
+    background: $gray1
+
+    display: grid
+    grid-template-columns: 3fr 1fr
+    grid-template-rows: min-content 1fr minmax( 20% , 50px )
+    grid-template-areas: "title list" "video list" "description list"
+
+    .title
+        grid-area: title
+        padding: .3em 1em
+        color: $white
+    .video
+        grid-area: video
+
+        .player
+            height: 200px
+
+            .iframe
+                height: 200px
+                width: 200px
+
+    .description
+        grid-area: description
+        padding: .3em 1em
+        color: $white
+
+    .list
+        grid-area: list
+        background: $gray2
+        padding: .5em
+        ul
+
+            display: grid
+            gap: .5em
+            grid-auto-flow: row
+        li
+            background: $yellow
+            padding: .3em
+            min-height: 3em

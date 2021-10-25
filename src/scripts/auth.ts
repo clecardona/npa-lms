@@ -3,6 +3,7 @@
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { authInstance } from "./firebase";
 
@@ -35,6 +36,19 @@ export async function signIn(email: string, password: string) {
     );
     account.payload = userCredential.user.uid;
     account.isLogged = true;
+  } catch (error) {
+    account.payload = error.message;
+  }
+  return account;
+}
+
+export async function recover(email: string) {
+  const account = { isReset: false, payload: "" };
+
+  try {
+    await sendPasswordResetEmail(authInstance, email);
+    account.payload = "Request sent, Please check your inbox";
+    account.isReset = true;
   } catch (error) {
     account.payload = error.message;
   }

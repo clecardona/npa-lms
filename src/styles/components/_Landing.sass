@@ -29,14 +29,14 @@
     .bloc
         position: absolute
         bottom: 60px
-
+        background: rgba(0,0,0,.3)
         height: min-content
         width: 100vw
 
         padding: 2em
 
         display: grid
-        grid-template-columns: 300px 1fr
+        grid-template-columns: 1fr 1fr
         grid-template-rows: min-content 50px min-content
         grid-template-areas: "title title" "subtitle subtitle" "signup login"
 
@@ -59,7 +59,7 @@
         .btn
             box-shadow: 3px 3px 0 $gray9
             border-color: $white
-            max-width: 300px
+
             &:hover
                 box-shadow: unset
 
@@ -80,6 +80,7 @@
                 color: $white
 
         @media only screen and (min-width: $desktopBreakpoint)
+            background: none
             grid-template-columns: 1fr 1fr
             right: 15%
             bottom: 20%
@@ -98,11 +99,11 @@
         margin: 0 auto
         margin-bottom: 10em
 
-        max-width: 600px
+        max-width: 800px
         height: 250px
 
         h2,p
-            transform: rotate(-4deg)
+            //transform: rotate(-4deg)
 
         h2
             grid-area: title
@@ -110,6 +111,8 @@
             align-self: flex-end
             background: $yellow
             width: max-content
+            transform: skewX(-20deg)
+            border-radius: 8px
 
         p
             grid-area: subtitle

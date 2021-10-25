@@ -18,7 +18,7 @@ export default function Login() {
   //Local states
   const [form, setForm] = useState({ email: "", password: "" });
   const [remember, setRemember] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [message, setMessage] = useState("");
 
   // Methods
   function onChange(key, value) {
@@ -28,7 +28,7 @@ export default function Login() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    setErrorMessage("");
+    setMessage("");
     const account = await signIn(form.email, form.password);
     account.isLogged ? onSuccess(account.payload) : onFailure(account.payload);
   }
@@ -42,7 +42,7 @@ export default function Login() {
   }
 
   function onFailure(code) {
-    setErrorMessage(code);
+    setMessage(code);
   }
   //Components
   const Fields = fields.map((item) => (
@@ -58,7 +58,7 @@ export default function Login() {
     <main className="page-login">
       <form onSubmit={onSubmit}>
         {Fields}
-        <p>{errorMessage}</p>
+        <p>{message}</p>
         <label className="remember">
           <input
             type="checkbox"
@@ -75,6 +75,12 @@ export default function Login() {
         Not registered ?
         <Link to="/signup">
           <strong> Create an account</strong>
+        </Link>
+      </p>
+      <p className="optional-action">
+        Forgot password ? :
+        <Link to="/recover">
+          <strong> Recover </strong>{" "}
         </Link>
       </p>
     </main>

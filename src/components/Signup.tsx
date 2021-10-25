@@ -15,7 +15,7 @@ export default function Signup() {
   const [form, setForm] = useState({ username: "", email: "", password: "" });
   const [message, setMessage] = useState("");
   const history = useHistory();
-  const { setLoggedIn, setUser, user } = useAuth();
+  const { setLoggedIn, setUser } = useAuth();
 
   // Methods
   function onChange(key, value) {
@@ -58,16 +58,11 @@ export default function Signup() {
     <main className="page-login signup ">
       <form onSubmit={onSubmit}>
         {Fields}
+        <p>{message}</p>
         <button className="btn btn-main">
           <h4>signup</h4>
         </button>
       </form>
-      <p className="optional-action">
-        Forgot password ? :
-        <Link to="/recover">
-          <strong> Recover </strong>{" "}
-        </Link>
-      </p>
     </main>
   );
 }

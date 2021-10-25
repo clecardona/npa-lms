@@ -52,8 +52,7 @@ export async function updateDocument(path: string, id: string, data: object) {
 }
 
 // Delete file
-export async function deleteDocument(db: Firestore, path: string, id: string) {
-  const docReference = doc(db, path, id);
-
+export async function deleteDocument(path: string, id: string) {
+  const docReference = doc(firestoreInstance, path, id);
   await deleteDoc(docReference);
 }
