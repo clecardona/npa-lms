@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 
 //Local imports
-import { getCourseById } from "scripts/courses";
+import { getById } from "scripts/methods";
 import useFetch from "hooks/useFetch";
 import { useAuth } from "state/AuthProvider";
 import { useCourses } from "state/CoursesProvider";
@@ -18,7 +18,7 @@ export default function Playlist() {
   const { dispatchCourses } = useCourses();
   const courses = useFetch("courses", dispatchCourses);
   // Constants
-  const course = getCourseById(courseID, courses.data);
+  const course = getById(courseID, courses.data);
 
   const opts = {
     height: "390",
