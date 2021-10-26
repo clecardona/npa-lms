@@ -1,1 +1,73 @@
 .page-profile
+    background: $yellow
+    @include flex-full-centered
+
+    .container
+        min-width: min-content
+        max-width: 100%
+        //background: red
+
+        display: grid
+        gap: .3em
+        grid-template-columns: 1fr 3fr
+        grid-template-rows: min-content min-content
+        grid-template-areas: "avatar box" "description buttons"
+
+        padding: 0 1em
+
+        .avatar
+            grid-area: avatar
+            border-radius: 1em
+            overflow: hidden
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+
+        .description
+            grid-area: description
+
+            background: rgba(255,255,255,.2)
+            border-radius: 1em
+            min-height: 80px
+            @include flex-vertical-centered
+            padding: .5em
+        .box
+            grid-area: box
+            display: grid
+            grid-gap: .3em
+            grid-auto-flow: row
+            grid-auto-rows: min-content
+            justify-content: flex-start
+            padding: 0 1em
+
+            h1
+                background: $white
+                height: min-content
+                width: max-content
+                transform: skewX(-20deg)
+                border-radius: 8px
+                padding: 0 .5em
+                margin: 0
+                text-transform: capitalize
+            h2,h4
+                padding: 0 .5em
+
+            a
+
+                h4
+                    display: flex
+                    align-items: center
+                    img
+                        margin-right: .3em
+                &:hover
+                    color: $white
+        .buttons
+            grid-area: buttons
+
+            display: grid
+            gap: .6em
+            grid-auto-flow: column
+            grid-auto-columns: minmax(min-content , 180px)
+            justify-content: center
+            align-items: center

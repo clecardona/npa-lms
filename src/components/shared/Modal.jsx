@@ -2,6 +2,7 @@ import reactDom from "react-dom";
 import cross from "assets/icns/cross.png";
 import CreateForm from "components/CreateForm";
 import EditForm from "components/EditForm";
+import EditProfile from "components/EditProfile";
 
 export default function Modal({ isOpen, onClose, data, children, type }) {
   if (!isOpen) return null;
@@ -18,6 +19,9 @@ export default function Modal({ isOpen, onClose, data, children, type }) {
         </div>
         {type === "create" && <CreateForm onClose={onClose} />}
         {type === "edit" && <EditForm onClose={onClose} data={data} />}
+        {type === "edit-profile" && (
+          <EditProfile onClose={onClose} data={data} />
+        )}
       </div>
     </>,
     document.getElementById("modal")

@@ -11,11 +11,6 @@ export default function Sorter({ hook, typeOfUser }) {
           Students
         </SortButton>
       )}
-      {typeOfUser === "student" && (
-        <SortButton target="profile" hook={hook}>
-          Profile
-        </SortButton>
-      )}
     </section>
   );
 }

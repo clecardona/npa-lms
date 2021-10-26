@@ -102,6 +102,10 @@ input[type="submit"]
 .btn-140
   width: 140px
 
+.btn-180
+  width: 100%
+  max-width: 180px
+
 .btn-delete
   background: $red
   color: $white
@@ -114,3 +118,16 @@ input[type="submit"]
     margin: 0 .5em
   &:hover
     filter: brightness(1)
+
+.btn-third
+  padding: 0 1em
+  border-radius: 0
+  filter: brightness(.9)
+  transform: skewX(-20deg)
+  border-radius: 8px
+  h4
+    color: inherit
+    transform: skewX(20deg)
+  &:hover
+    filter: brightness(1)
+    transition: brightness .3s ease

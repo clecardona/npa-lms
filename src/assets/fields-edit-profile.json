@@ -1,0 +1,50 @@
+[
+  {
+    "key": "firstname",
+    "label": "First name",
+    "placeholder": "Lionel",
+    "mode": "edit",
+    "type": "text",
+    "required": true
+  },
+  {
+    "key": "lastname",
+    "label": "Last name",
+    "placeholder": "Messi",
+    "mode": "edit",
+    "type": "text",
+    "required": true
+  },
+  {
+    "key": "username",
+    "label": "Username",
+    "placeholder": "l.messi99",
+    "mode": "edit",
+    "type": "text",
+    "required": true
+  },
+  {
+    "key": "description",
+    "label": "Bio",
+    "placeholder": "Best juggler ever",
+    "mode": "edit",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "instagram",
+    "label": "Instagram",
+    "placeholder": "l.messi",
+    "mode": "edit",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "twitter",
+    "label": "Twitter",
+    "placeholder": "l.messi",
+    "mode": "edit",
+    "type": "text",
+    "required": false
+  }
+]
