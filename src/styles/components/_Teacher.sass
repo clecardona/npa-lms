@@ -1,26 +1,37 @@
 .page-teacher
-    background: $yellow
+
     display: flex
     flex-direction: column
     justify-content: flex-start
     align-items: center
     padding-bottom: 1em
     width: 100%
-    max-width: 800px
-    margin: 0 auto
 
+    padding-top: 50px
+    @media only screen and (min-width: $tabletBreakpoint)
+        padding-top: 0
     .head-title
         color: $white
         width: 100%
         background: rgba(0,0,0,.3)
         text-transform: capitalize
+        padding: .5em 1em
 
     .cards
-        max-width: 600px
-        margin: 0 auto
+        //max-width: 900px
+        //margin: 0 auto
         display: grid
         gap: 18px
         grid-auto-flow: row
+        padding: 1em
+
+        @media only screen and (min-width: $tabletBreakpoint)
+            margin-right: 70px
+            grid-template-columns: 1fr 1fr
+        @media only screen and (min-width: $desktopBreakpoint)
+            grid-template-columns: 1fr 1fr 1fr
+            @media only screen and (min-width: 1300px)
+                grid-template-columns: 1fr 1fr 1fr 1fr
 
         .card
             $card-height: 300px
@@ -32,7 +43,6 @@
             width: 100%
             max-width: 500px
             height: $card-height
-            //transform: skewX(-20deg)
             border-radius: 1em
 
             display: grid
@@ -40,8 +50,6 @@
             grid-template-rows: min-content 1fr min-content
 
             grid-template-areas: "title img""description img ""menu menu"
-            & *
-                //transform: skewX(20deg)
 
             img
                 grid-area: img

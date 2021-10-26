@@ -1,8 +1,16 @@
-.page-profile
-    background: $yellow
-    @include flex-full-centered
 
+.page-profile
+    display: grid
+    grid-template-rows: min-content 1fr
+
+    .head-title
+        color: $white
+        width: 100%
+        background: rgba(0,0,0,.3)
+        text-transform: capitalize
+        padding: .5em 1em
     .container
+        align-self: center
         min-width: min-content
         max-width: 100%
         //background: red
@@ -52,9 +60,7 @@
                 text-transform: capitalize
             h2,h4
                 padding: 0 .5em
-
             a
-
                 h4
                     display: flex
                     align-items: center

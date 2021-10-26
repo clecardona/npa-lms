@@ -1,20 +1,39 @@
 [
   {
+    "key": "firstname",
+    "label": "First name",
+    "placeholder": "Lionel",
+    "mode": "edit",
+    "type": "text",
+    "required": true
+  },
+  {
+    "key": "lastname",
+    "label": "Last name",
+    "placeholder": "Messi",
+    "mode": "edit",
+    "type": "text",
+    "required": true
+  },
+  {
     "key": "username",
     "label": "Username",
     "placeholder": "kMbappe12",
-    "type": "text"
+    "type": "text",
+    "required": true
   },
   {
     "key": "email",
     "label": "Email",
     "placeholder": "youremail@provider.com",
-    "type": "email"
+    "type": "email",
+    "required": true
   },
   {
     "key": "password",
     "label": "Password",
     "placeholder": "*********",
-    "type": "password"
+    "type": "password",
+    "required": true
   }
 ]

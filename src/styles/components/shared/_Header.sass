@@ -3,6 +3,7 @@ header
   padding: 0 2em
   background: $black
   color: $white
+  //box-shadow: 0px 2px 4px rgba(0,0 ,0 ,0.3 )
   nav
     z-index: 10
     width: 100%
@@ -12,8 +13,6 @@ header
     flex-direction: row
     justify-content: space-between
     align-items: center
-
-    box-shadow: 0px 2px 4px rgba(0,0 ,0 ,0.3 )
 
   .home
     $home-width: 110px
@@ -25,8 +24,12 @@ header
     flex-direction: row
     justify-content: flex-start
     align-items: center
-
     img
       height: 2em
       margin-right: 1em
-      filter: invert(1)
+      filter: saturate(0)
+
+    &:hover
+      color: $yellow
+      img
+        filter: saturate(1)

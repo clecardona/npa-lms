@@ -16,6 +16,8 @@ export default function Signup() {
   const [message, setMessage] = useState("");
   const history = useHistory();
   const { setLoggedIn, setUser } = useAuth();
+  const AVATAR_URL =
+    "https://cdn.dribbble.com/users/1066406/screenshots/6453079/bbb_-_firmino.jpg?compress=1&resize=400x300";
 
   // Methods
   function onChange(key, value) {
@@ -31,13 +33,19 @@ export default function Signup() {
   }
 
   async function onSuccess(uid) {
-    const newUser = { username: form.username, role: "student" };
+    const newUser = {
+      firstname: form.firstname,
+      lastname: form.lastname,
+      username: form.username,
+      role: "student",
+      avatarURL: AVATAR_URL,
+    };
     // 1.TODO create a user in the database using the UID as the document id.
     await createDocumentWithId("users", uid, newUser);
     // 2. update global state: user and loggedin
     setLoggedIn(true);
     setUser(newUser);
-    // 3. redirect to home
+    // 3. redirect to home = course list
     history.push("/");
   }
 
@@ -63,6 +71,12 @@ export default function Signup() {
           <h4>signup</h4>
         </button>
       </form>
+      <p className="optional-action">
+        Already have an acoount? :
+        <Link to="/login">
+          <strong> Login </strong>
+        </Link>
+      </p>
     </main>
   );
 }

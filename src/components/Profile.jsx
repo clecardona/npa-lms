@@ -11,7 +11,7 @@ import instagram from "assets/icns/instagram.png";
 import { useAuth } from "state/AuthProvider";
 import Modal from "./shared/Modal";
 
-export default function StudentProfile() {
+export default function Profile() {
   //Global state
   const { user } = useAuth();
   const { dispatchUsers } = useUsers();
@@ -29,13 +29,16 @@ export default function StudentProfile() {
       {users.error !== null && <BoxError />}
       {(!users.loading && users.error) === null && (
         <main className="page-profile">
+          <h2 className="head-title">profile </h2>
           <div className="container">
             <div className="avatar">
               <img src={profile.avatarURL} alt="img" />
             </div>
-            <div className="description">
-              <p>{profile.description}</p>
-            </div>
+            {profile.description && (
+              <div className="description">
+                <p>{profile.description}</p>
+              </div>
+            )}
 
             <div className="box">
               <h1>

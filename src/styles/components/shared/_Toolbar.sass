@@ -7,11 +7,10 @@
     background: $gray1
 
     display: flex
-    justify-content: center
+    justify-content: flex-end
 
-    width: 70px
-    height: calc(100% - $footer-height)
-
+    width: 100%
+    height: 50px
     padding: 0 1em
 
     h4
@@ -19,13 +18,29 @@
 
     .buttons
 
-        width: 100%
         display: grid
-        grid-template-columns: 1fr
-        grid-template-rows: repeat(3,50px)
-        grid-template-areas: "open" "calendar" "logout"
+        width: 100%
+        grid-template-columns: repeat(3,50px) 1fr 50px
+        grid-template-rows: 1fr
+        grid-template-areas: " calendar profile logout null open"
 
         justify-items: center
+
+        .open
+            grid-area: open
+
+            img
+                transform: rotate(0deg)
+                transition: ease .3s
+
+        .calendar
+            grid-area: calendar
+
+        .profile
+            grid-area: profile
+
+        .logout
+            grid-area: logout
 
         .btn
             width: min-content
@@ -34,29 +49,36 @@
             &:hover
                 filter: saturate(1)
 
-        .calendar
-            grid-area: calendar
-            //background: green
+    @media only screen and (min-width: $tabletBreakpoint)
+        position: absolute
+        width: 70px
+        height: calc(100% - $footer-height)
+        padding: 0 1em
+        justify-content: flex-start
 
-        .logout
-            grid-area: logout
-            //background: red
+        .buttons
 
-        .open
-            grid-area: open
-            //background: blue
+            grid-template-columns: 1fr
+            grid-template-rows: repeat(3,50px)
+            grid-template-areas: "open" "calendar" "profile" "logout"
 
-            img
-                transform: rotate(90deg)
-                transition: ease .3s
+            .open
+                img
+                    transform: rotate(90deg)
 
+/** Toolbar open **/
 .toolbar-open
 
-    width: 220px
+    width: 100%
     transition: width .3s ease
+    height: max-content
 
     .buttons
         width: 100%
+        gap: .3em
+        grid-template-columns: 1fr
+        grid-template-rows: repeat(4,50px)
+        grid-template-areas: "open" "calendar" "profile" "logout"
 
         .calendar
             grid-area: calendar
@@ -100,3 +122,6 @@
             img
 
                 justify-self: center
+    @media only screen and (min-width: $tabletBreakpoint) //toolbar desktop OPEN
+        height: 100%
+        width: 220px

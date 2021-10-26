@@ -10,7 +10,7 @@ import SignUp from "components/Signup";
 import Header from "components/shared/Header";
 import Course from "components/Course";
 import Playlist from "components/Playlist";
-import StudentProfile from "components/StudentProfile";
+import Profile from "components/Profile";
 
 export default function Logged() {
   const { user } = useAuth();
@@ -23,7 +23,7 @@ export default function Logged() {
       <Route component={SignUp} path="/signup" />
       <Route component={Course} path="/courses/:courseID" />
       <Route component={Playlist} path="/playlist/:courseID" />
-      <Route component={StudentProfile} path="/profile/:userID" />
+      <Route component={Profile} path="/profile/:userID" />
     </>
   );
 }
