@@ -20,7 +20,6 @@ export default function Teacher() {
 
   return (
     <main className="page-teacher">
-      <Identificator username={user.username} role={user.role} />
       <Sorter hook={[selection, setSelection]} typeOfUser={user.role} />
       {selection === "courses" && (
         <>

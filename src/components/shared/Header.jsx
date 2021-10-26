@@ -1,8 +1,11 @@
+//NPM Packages
 import { NavLink, useHistory } from "react-router-dom";
 
-import logo from "assets/icns/bale-logo.png";
-import Dropdown from "./Dropdown";
+//Local files
 import { useAuth } from "state/AuthProvider";
+import logo from "assets/icns/bale-logo.png";
+import Toolbar from "components/shared/Toolbar";
+import Identificator from "./Identificator";
 
 export default function Header() {
   // Global state
@@ -26,7 +29,8 @@ export default function Header() {
             Foot<strong>X</strong>
           </h2>
         </NavLink>
-        <Dropdown onLogout={onLogout} />
+        <Identificator username={user.username} role={user.role} />
+        <Toolbar onLogout={onLogout} />
       </nav>
     </header>
   );
