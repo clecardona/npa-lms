@@ -1,7 +1,8 @@
 //@ts-nocheck
-
+//NPM Packages
 import { Link } from "react-router-dom";
-import hero from "assets/img/hero.png";
+
+//Local files
 import arrowDown from "assets/icns/arrowDown.png";
 import flip from "assets/icns/kickout.png";
 import articles from "assets/home/articles.json";
@@ -14,12 +15,12 @@ const Articles = articles.map((item) => {
   const logoPath = require("assets/icns/football/" + item.logoURL);
   return (
     <article key={item.imageURL}>
-      <h2>{item.title}</h2>
-      <p>{item.description}</p>
       <div className="img-container">
         <img className="illustration" src={imgPath.default} alt="img" />
         <img className="logo" src={logoPath.default} alt="img" />
       </div>
+      <h2>{item.title}</h2>
+      <p>{item.description}</p>
     </article>
   );
 });
@@ -29,9 +30,6 @@ export default function Landing() {
     <div className="page-landing">
       <div className="hero" id="hero">
         <VideoBG />
-        <a href="#articles" className="hero-arrow">
-          <img src={arrowDown} alt="aaa" />
-        </a>
 
         <div className="bloc">
           <div className="title">
@@ -47,6 +45,9 @@ export default function Landing() {
           <Link className="btn btn-ghost btn-login" to="/login">
             <h4>login</h4>
           </Link>
+          <a href="#articles" className="hero-arrow">
+            <img src={arrowDown} alt="aaa" />
+          </a>
         </div>
       </div>
       <section id="articles">{Articles}</section>

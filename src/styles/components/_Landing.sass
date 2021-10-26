@@ -2,160 +2,80 @@
     display: flex
     flex-direction: column
 
-    .hero
-        background: $yellow
-        height: 100vh
-        overflow: hidden
-    .hero-arrow
-        @include absolute-horizontal-centered
-        bottom: 10px
-        img
-            filter: brightness(0) invert(1)
+    #articles
 
-            &:hover
-                transition: ease .3s
-                transform: scale(1.2)
-    .bg
+        padding: 3em 0
+        article
 
-        position: absolute
-        top: 0
-        left: 0
-        height: 100vh
-        width: 100vw
-        filter: brightness(0.5)
-
-        object-fit: cover
-
-    .bloc
-        position: absolute
-        bottom: 60px
-        background: rgba(0,0,0,.3)
-        height: min-content
-        width: 100vw
-
-        padding: 2em
-
-        display: grid
-        grid-template-columns: 1fr 1fr
-        grid-template-rows: min-content 50px min-content
-        grid-template-areas: "title title" "subtitle subtitle" "signup login"
-
-        .title
-            grid-area: title
-            display: flex
-            align-items: center
-            color: $white
-
-            img
-                width: 34px
-                height: 34px
-                margin-left: 6px
-                filter: invert(1)
-
-        h2
-            grid-area: subtitle
-            color: $white
-
-        .btn
-            box-shadow: 3px 3px 0 $gray9
-            border-color: $white
-
-            &:hover
-                box-shadow: unset
-
-        .btn-main
-            background: $white
-            h4
-                color: $black
-
-        .btn-signup
-            grid-area: signup
-            margin-right: 10px
-
-        .btn-login
-            grid-area: login
-            margin-left: 10px
-
-            h4
-                color: $white
-
-        @media only screen and (min-width: $desktopBreakpoint)
-            background: none
-            grid-template-columns: 1fr 1fr
-            right: 15%
-            bottom: 20%
-            width: 400px
-
-.page-landing section
-    padding: 5em 0
-    article
-
-        display: grid
-        grid-template-columns: 70% 1fr
-        grid-template-rows: 1fr 1fr
-        grid-template-areas: "title ." "subtitle ."
-
-        padding: 1em
-        margin: 0 auto
-        margin-bottom: 10em
-
-        max-width: 800px
-        height: 250px
-
-        h2,p
-            //transform: rotate(-4deg)
-
-        h2
-            grid-area: title
-            padding: 6px 12px
-            align-self: flex-end
-            background: $yellow
-            width: max-content
-            transform: skewX(-20deg)
-            border-radius: 8px
-
-        p
-            grid-area: subtitle
-            max-width: 70%
-
-        .img-container
-
-            position: absolute
-            z-index: -1
-
-            max-width: 600px
-            margin: 0 auto
-
-            height: 200px
-            width: 100vw
+            z-index: 1
             display: grid
-            grid-template-columns: 1fr 70%
-            grid-template-areas: " logo illustration "
+            gap: .3em
+            grid-template-columns: 70% 1fr
+            grid-template-rows: 1fr 1fr
+            grid-template-areas: "title ." "subtitle ."
 
-            .illustration
-                grid-area: illustration
-                justify-self: center
-                align-self: center
-                width: 100%
+            padding: 1em
+            margin: 0 auto
+            margin-bottom: 5em
 
-            .logo
-                grid-area: logo
-                justify-self: center
-                align-self: center
-                opacity: .1
-                height: 100px
-                transform: rotate(-4deg)
+            max-width: 800px
+            height: 250px
 
-        &:nth-last-child(odd)
-            grid-template-columns: 1fr 70%
-            grid-template-areas: ".title " ".subtitle "
             h2,p
-                text-align: right
-                justify-self: flex-end
+                z-index: 1
+
+            h2
+                grid-area: title
+                padding: 3px 12px
+                align-self: flex-end
+                background: $white
+                width: max-content
+                transform: skewX(-20deg)
+                border-radius: 8px
+
+            p
+                grid-area: subtitle
+                max-width: 70%
 
             .img-container
-                grid-template-columns: 70% 1fr
-                grid-template-areas: " illustration logo"
+                position: absolute
+                max-width: 800px
+                margin: 0 auto
+
+                height: min-content
+                width: 100%
+                display: grid
+                grid-template-columns: 1fr 60%
+                grid-template-areas: " logo illustration "
+
+                overflow: hidden
+                //background: blue
+
+                .illustration
+                    grid-area: illustration
+                    justify-self: center
+                    align-self: center
+                    height: 320px
+                    object-fit: contain
+
+                .logo
+                    grid-area: logo
+                    justify-self: center
+                    align-self: center
+                    opacity: .1
+                    height: 100px
+                    transform: rotate(-4deg)
+
+            &:nth-last-child(odd)
+                grid-template-columns: 1fr 70%
+                grid-template-areas: ".title " ".subtitle "
+                h2,p
+                    text-align: right
+                    justify-self: flex-end
+
+                .img-container
+                    grid-template-columns: 70% 1fr
+                    grid-template-areas: " illustration logo"
 
 .up-arrow
     width: 100%

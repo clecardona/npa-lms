@@ -1,0 +1,89 @@
+.page-landing
+    .hero
+        background: $yellow
+        height: 100vh
+        overflow: hidden
+
+    .bg
+
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        filter: brightness(0.5)
+
+        object-fit: cover
+
+    .bloc
+        position: absolute
+        bottom: 0px
+        background: rgba(0,0,0,.3)
+        height: min-content
+        width: 100vw
+
+        padding: 2em
+
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: min-content 50px min-content 50px
+        grid-template-areas: "title title" "subtitle subtitle" "signup login" "arrow arrow"
+
+        .title
+            grid-area: title
+            display: flex
+            align-items: center
+            color: $white
+
+            img
+                width: 34px
+                height: 34px
+                margin-left: 6px
+                filter: invert(1)
+
+        h2
+            grid-area: subtitle
+            color: $white
+
+        .hero-arrow
+            grid-area: arrow
+            justify-self: center
+            align-self: flex-end
+
+            img
+                filter: brightness(0) invert(1)
+
+                &:hover
+                    transition: ease .3s
+                    transform: scale(1.2)
+
+        .btn
+            box-shadow: 3px 3px 0 $gray9
+            border-color: $white
+
+            &:hover
+                box-shadow: unset
+
+        .btn-main
+            background: $white
+            h4
+                color: $black
+
+        .btn-signup
+            grid-area: signup
+            margin-right: 10px
+
+        .btn-login
+            grid-area: login
+            margin-left: 10px
+
+            h4
+                color: $white
+
+        @media only screen and (min-width: $desktopBreakpoint)
+            background: none
+            grid-template-columns: 1fr 1fr
+            grid-template-rows: min-content 50px min-content 150px
+            right: 15%
+            bottom: 0
+            width: 400px
