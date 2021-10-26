@@ -13,8 +13,6 @@ export default function CreateForm({ onClose, data }) {
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
 
-  console.log(form);
-
   // Methods
   function onChange(key, value) {
     const field = { [key]: value };

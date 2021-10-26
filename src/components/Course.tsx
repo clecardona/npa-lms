@@ -3,55 +3,57 @@
 import { useParams, Link } from "react-router-dom";
 
 //Local imports
-import { getCourseById } from "scripts/courses";
+import { getById } from "scripts/methods";
 import { useCourses } from "state/CoursesProvider";
 import { useAuth } from "state/AuthProvider";
 import Files from "./shared/Files";
-import Identificator from "./shared/Identificator";
 import Links from "./shared/Links";
 import useFetch from "hooks/useFetch";
 import Spinner from "./shared/Spinner";
 import BoxError from "./shared/BoxError";
 
 export default function Course() {
-  // Global State
-  const { user } = useAuth();
-  //Local state
-  const { courseID } = useParams();
+  //Global state
   const { dispatchCourses } = useCourses();
   const courses = useFetch("courses", dispatchCourses);
+  //Local state
+  const { courseID } = useParams();
   // Constants
-  const course = getCourseById(courseID, courses.data);
+  const course = getById(courseID, courses.data);
 
   return (
-    <>
-      <Identificator role={user.role} username={user.username} />
-      <main className="page-course">
-        {courses.loading === true && <Spinner />}
-        {courses.error !== null && <BoxError />}
-        {(!courses.loading && courses.error) === null && (
-          <>
-            <h2>{course.title}</h2>
-            <img src={course.imageURL} alt="img" className="illustration" />
-            <p className="description">{course.content}</p>
+    <main className="page-course">
+      {courses.loading === true && <Spinner />}
+      {courses.error !== null && <BoxError />}
+      {(!courses.loading && courses.error) === null && (
+        <>
+          <h2>{course.title}</h2>
+          <img src={course.imageURL} alt="img" className="illustration" />
+          <p className="description">{course.content}</p>
 
-            {course.links && <Links data={course.links} />}
-            {course.file && (
-              <a href={course.file} className="files" download>
-                <h4>Download file ⬇</h4>
-                {/* <Files data={course} /> */}
-              </a>
-            )}
-            <Link to={"/playlist/" + courseID} className="btn ">
-              <h4>Video playlist for this course-todo</h4>
-            </Link>
+          {course.links && <Links data={course.links} />}
+          {course.file && (
+            <a
+              href={course.file}
+              className="btn btn-third btn-file btn-180 "
+              download
+            >
+              <h4>Download file ⬇</h4>
+              {/* <Files data={course} /> */}
+            </a>
+          )}
+          <Link
+            to={"/playlist/" + courseID}
+            className="btn btn-third btn-video btn-180"
+          >
+            <h4>Video playlist 🎥</h4>
+          </Link>
 
-            <Link to="/" className="btn btn-main btn-140">
-              <h4>Back</h4>
-            </Link>
-          </>
-        )}
-      </main>
-    </>
+          <Link to="/" className="btn btn-main btn-180">
+            <h4>Back to courses</h4>
+          </Link>
+        </>
+      )}
+    </main>
   );
 }

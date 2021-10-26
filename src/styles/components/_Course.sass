@@ -8,6 +8,10 @@
     width: 100%
     max-width: 800px
     margin: 0 auto
+    background: $yellow
+
+    .head-title
+        text-transform: capitalize
 
     .illustration
         width: 100%
@@ -18,27 +22,28 @@
         max-width: 300px
 
     .links
-        h4
-            color: $blue
-            padding: .3em .5em
-            &:hover
-                transition: .2s ease
-                text-decoration: underline
-                filter: brightness(1)
 
-    .files
-        h4
-            transform: skewX(-20deg)
-            border-radius: .3em
+        display: grid
+        grid-auto-flow: column
 
-            background: $yellow
-            color: $white
-            padding: .3em .5em
-            margin: .3em 0 .3em .5em
-            &:hover
-                transition: .2s ease
-                background: orange
+    .btn-link
+        color: $blue
+        border: 1px solid transparent
+        &:hover
+            border: 1px solid $blue
 
-    .btn
+    .btn-file
+        background: $yellow
+        color: $white
+
+    .btn-video
+        color: $red
+        border: 1px solid transparent
+        &:hover
+            border: 1px solid $red
+
+    .btn-third
+        justify-self: flex-start
+    .btn-main
         justify-self: center
         margin: 2em
