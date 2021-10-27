@@ -30,11 +30,11 @@ export default function Course() {
       {(!courses.loading && courses.error) === null && (
         <>
           <div className="container">
-            <h2>{course.title}</h2>
+            <h2 className="title">{course.title}</h2>
             <img
+              className="illustration"
               src={course.imageURL ? course.imageURL : DEFAULT_IMAGE_URL}
               alt="img"
-              className="illustration"
             />
             <p className="description">{course.content}</p>
 

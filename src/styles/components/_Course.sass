@@ -6,22 +6,22 @@
     grid-auto-flow: row
     grid-auto-rows: min-content
 
+    padding: 1em
+
     justify-items: center
     .container
+        padding: 1em
 
         display: grid
-        gap: .5em
+        gap: 1em
         grid-auto-flow: row
         grid-auto-rows: max-content
-
-        background: $yellow
 
         .head-title
             text-transform: capitalize
 
         .illustration
             width: 100%
-            height: 300px
             object-fit: cover
         ul
             width: 100%
@@ -33,6 +33,7 @@
             gap: .5em
             grid-auto-flow: column
             justify-content: flex-start
+            width: 100%
 
         .btn-link
             color: $blue
@@ -49,11 +50,19 @@
 
         .links
             grid-auto-flow: row
+            width: 100%
 
         .btn-video
             color: $white
             background: $red
             filter: brightness(.9)
+            h4
+                display: flex
+                align-items: center
+                img
+                    height: 20px
+                    filter: invert(1)
+                    margin-left: .5em
             &:hover
                 filter: brightness(1)
 
@@ -63,33 +72,28 @@
             justify-self: center
             margin: 2em
 
-@media only screen and (min-width: $tabletBreakpoint)
+@media only screen and (min-width: $desktopBreakpoint)
     .container
         grid-template-columns: 2fr 1fr
         grid-template-rows: repeat(6,min-content)
         grid-template-areas: "title title" "img video" "img description" "img links" "img files" "buttons buttons"
         width: 100%
-        background: red
+
         margin-right: 70px
 
-        .head-title
+        .title
             grid-area: title
+
         .btn-video
             grid-area: video
 
-            h4
-                display: flex
-                align-items: center
-                img
-                    height: 20px
-                    filter: invert(1)
-                    margin-left: .5em
         .illustration
             grid-area: img
             height: 100%
             width: 100%
             object-fit: cover
             object-position: top
+            background: red
         .description
             grid-area: description
             background: rgba(255,255 ,255 ,.2 )
