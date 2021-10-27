@@ -1,51 +1,107 @@
 .page-course
-
-    padding: 1.5em
-    display: grid
-    gap: .5em
-    grid-auto-flow: row
-    grid-auto-rows: max-content
+    margin: auto
     width: 100%
-    max-width: 800px
-    margin: 0 auto
-    background: $yellow
+    max-width: 1000px
+    display: grid
+    grid-auto-flow: row
+    grid-auto-rows: min-content
 
-    .head-title
-        text-transform: capitalize
-
-    .illustration
-        width: 100%
-        height: 300px
-        object-fit: cover
-    ul
-        width: 100%
-        max-width: 300px
-
-    .links,.files
+    justify-items: center
+    .container
 
         display: grid
         gap: .5em
-        grid-auto-flow: column
-        justify-content: flex-start
+        grid-auto-flow: row
+        grid-auto-rows: max-content
+
+        background: $yellow
+
+        .head-title
+            text-transform: capitalize
+
+        .illustration
+            width: 100%
+            height: 300px
+            object-fit: cover
+        ul
+            width: 100%
+            max-width: 300px
+
+        .links,.files
+
+            display: grid
+            gap: .5em
+            grid-auto-flow: column
+            justify-content: flex-start
 
         .btn-link
             color: $blue
-            border: 1px solid transparent
+            border-bottom: 1px solid transparent
             &:hover
-                border: 1px solid $blue
+                border-bottom: 1px solid $blue
 
         .btn-file
             background: orange
             color: $white
+            filter: brightness(.9)
+            &:hover
+                filter: brightness(1)
 
-    .btn-video
-        color: $red
-        border: 1px solid transparent
-        &:hover
-            border: 1px solid $red
+        .links
+            grid-auto-flow: row
 
-    .btn-third
-        justify-self: flex-start
-    .btn-main
-        justify-self: center
-        margin: 2em
+        .btn-video
+            color: $white
+            background: $red
+            filter: brightness(.9)
+            &:hover
+                filter: brightness(1)
+
+        .btn-third
+            justify-self: flex-start
+        .btn-main
+            justify-self: center
+            margin: 2em
+
+@media only screen and (min-width: $tabletBreakpoint)
+    .container
+        grid-template-columns: 2fr 1fr
+        grid-template-rows: repeat(6,min-content)
+        grid-template-areas: "title title" "img video" "img description" "img links" "img files" "buttons buttons"
+        width: 100%
+        background: red
+        margin-right: 70px
+
+        .head-title
+            grid-area: title
+        .btn-video
+            grid-area: video
+
+            h4
+                display: flex
+                align-items: center
+                img
+                    height: 20px
+                    filter: invert(1)
+                    margin-left: .5em
+        .illustration
+            grid-area: img
+            height: 100%
+            width: 100%
+            object-fit: cover
+            object-position: top
+        .description
+            grid-area: description
+            background: rgba(255,255 ,255 ,.2 )
+            min-height: 120px
+            padding: 1em
+            border-radius: .5em
+        .links
+            grid-area: links
+            background: rgba(255,255 ,255 ,.2 )
+            padding: 1em
+            border-radius: .5em
+        .files
+            grid-area: files
+        .btn-main
+            grid-area: buttons

@@ -12,6 +12,7 @@ import Course from "components/Course";
 import Playlist from "components/Playlist";
 import Profile from "components/Profile";
 import Toolbar from "components/shared/Toolbar";
+import VideoTest from "components/VideoTest";
 
 export default function Logged() {
   const { user } = useAuth();
@@ -26,6 +27,7 @@ export default function Logged() {
       <Route component={Course} path="/courses/:courseID" />
       <Route component={Playlist} path="/playlist/:courseID" />
       <Route component={Profile} path="/profile/:userID" />
+      <Route component={VideoTest} path="/test" />
     </>
   );
 }

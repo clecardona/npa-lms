@@ -5,7 +5,7 @@ import { useParams, Link } from "react-router-dom";
 //Local imports
 import { getById } from "scripts/methods";
 import { useCourses } from "state/CoursesProvider";
-import { useAuth } from "state/AuthProvider";
+import play from "assets/icns/play.svg";
 import Files from "./shared/Files";
 import Links from "./shared/Links";
 import useFetch from "hooks/useFetch";
@@ -29,23 +29,23 @@ export default function Course() {
       {courses.error !== null && <BoxError />}
       {(!courses.loading && courses.error) === null && (
         <>
-          <h2>{course.title}</h2>
-          <img
-            src={course.imageURL ? course.imageURL : DEFAULT_IMAGE_URL}
-            alt="img"
-            className="illustration"
-          />
-          <p className="description">{course.content}</p>
+          <div className="container">
+            <h2>{course.title}</h2>
+            <img
+              src={course.imageURL ? course.imageURL : DEFAULT_IMAGE_URL}
+              alt="img"
+              className="illustration"
+            />
+            <p className="description">{course.content}</p>
 
-          {course.links && <Links data={course.links} />}
-          {course.files && <Files data={course.files} />}
-          <Link
-            to={"/playlist/" + courseID}
-            className="btn btn-third btn-video btn-180"
-          >
-            <h4>Video playlist 🎥</h4>
-          </Link>
-
+            {course.links && <Links data={course.links} />}
+            {course.files && <Files data={course.files} />}
+            <Link to={"/playlist/" + courseID} className="btn btn-video">
+              <h4>
+                Video playlist <img src={play} alt="" />
+              </h4>
+            </Link>
+          </div>
           <Link to="/" className="btn btn-main btn-180">
             <h4>Back to courses</h4>
           </Link>
