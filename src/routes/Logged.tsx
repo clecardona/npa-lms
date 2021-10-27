@@ -11,6 +11,7 @@ import Header from "components/shared/Header";
 import Course from "components/Course";
 import Playlist from "components/Playlist";
 import Profile from "components/Profile";
+import Toolbar from "components/shared/Toolbar";
 
 export default function Logged() {
   const { user } = useAuth();
@@ -18,6 +19,7 @@ export default function Logged() {
   return (
     <>
       <Header />
+      <Toolbar />
       <Route exact path="/" component={isTeacher ? Teacher : Student} />
       <Route component={Login} path="/login" />
       <Route component={SignUp} path="/signup" />

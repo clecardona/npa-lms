@@ -65,6 +65,8 @@
             .open
                 img
                     transform: rotate(90deg)
+                h4
+                    color: $white
 
 /** Toolbar open **/
 .toolbar-open
@@ -123,5 +125,5 @@
 
                 justify-self: center
     @media only screen and (min-width: $tabletBreakpoint) //toolbar desktop OPEN
-        height: 100%
+        height: calc(100% - $footer-height)
         width: 220px

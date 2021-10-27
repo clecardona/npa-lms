@@ -21,20 +21,22 @@
         width: 100%
         max-width: 300px
 
-    .links
+    .links,.files
 
         display: grid
+        gap: .5em
         grid-auto-flow: column
+        justify-content: flex-start
 
-    .btn-link
-        color: $blue
-        border: 1px solid transparent
-        &:hover
-            border: 1px solid $blue
+        .btn-link
+            color: $blue
+            border: 1px solid transparent
+            &:hover
+                border: 1px solid $blue
 
-    .btn-file
-        background: $yellow
-        color: $white
+        .btn-file
+            background: orange
+            color: $white
 
     .btn-video
         color: $red

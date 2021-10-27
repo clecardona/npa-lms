@@ -1,49 +1,51 @@
 import { useState } from "react";
-import remove from "assets/icns/remove.png";
+import minus from "assets/icns/minus.png";
 
 export default function InputFieldMultiple({ onChange, options, state }) {
   const { key, label, placeholder, type, mode, required } = options;
 
-  const [quantity, setQuantity] = useState(mode === "edit" ? 2 : 1);
+  //const [quantity, setQuantity] = useState(mode === "edit" ? 2 : 1);
+  const [visible2, setVisible2] = useState(false);
+  const [visible3, setVisible3] = useState(false);
   const [links, setLinks] = useState(state);
 
-  console.log(state);
-
-  //Methods
-  function addField() {
-    if (quantity < 3) {
-      setQuantity(quantity + 1);
-    }
-  }
-  function removeField() {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  }
-  console.log(quantity);
   // REFACTOR THIS SHIT IF POSSIBLE
   return (
     <>
-      <label>
-        Link{quantity > 1 ? "s" : ""}:
+      <label className={key}>
+        Link{!visible2 && !visible3 ? "s" : ""}:
         <input
           value={links.l1 ? links.l1 : ""}
           type={type}
-          placeholder={mode === "edit" ? state : placeholder}
+          placeholder={mode === "edit" && state.l1 ? state.l1 : placeholder}
           required={required}
           onChange={(e) => {
             setLinks({ ...links, l1: e.target.value });
             onChange(key, { ...links, l1: e.target.value });
           }}
         ></input>
+        {mode === "edit" && (
+          <button
+            className="btn btn-remove-field"
+            onClick={() => {
+              let newLinks = { ...links };
+              delete newLinks.l1;
+              setLinks(newLinks);
+              onChange(key, newLinks);
+            }}
+            type="button"
+          >
+            <img src={minus} alt="-" />
+          </button>
+        )}
       </label>
 
-      {(quantity >= 2 || (mode === "edit" && links.l2 !== "")) && (
+      {(visible2 || (mode === "edit" && state.l2)) && (
         <label className={key}>
           <input
             value={links.l2 ? `${links.l2}` : ""}
             type={type}
-            placeholder={placeholder}
+            placeholder={mode === "edit" && state.l2 ? state.l2 : placeholder}
             required={required}
             onChange={(e) => {
               setLinks({ ...links, l2: e.target.value });
@@ -53,16 +55,19 @@ export default function InputFieldMultiple({ onChange, options, state }) {
           <button
             className="btn btn-remove-field"
             onClick={() => {
-              setLinks({ ...links, l2: "" });
-              removeField();
+              let newLinks = { ...links };
+              delete newLinks.l2;
+              setLinks(newLinks);
+              onChange(key, newLinks);
+              setVisible2(false);
             }}
             type="button"
           >
-            <img src={remove} alt="-" />
+            <img src={minus} alt="-" />
           </button>
         </label>
       )}
-      {(quantity >= 3 || (mode === "edit" && links.l3 !== "")) && (
+      {(visible3 || (mode === "edit" && state.l3)) && (
         <label className={key}>
           <input
             value={links.l3 ? `${links.l3}` : ""}
@@ -77,19 +82,25 @@ export default function InputFieldMultiple({ onChange, options, state }) {
           <button
             className="btn btn-remove-field"
             onClick={() => {
-              setLinks({ ...links, l3: "" });
-              removeField();
+              let newLinks = { ...links };
+              delete newLinks.l3;
+              setLinks(newLinks);
+              onChange(key, newLinks);
+              setVisible3(false);
             }}
             type="button"
           >
-            <img src={remove} alt="-" />
+            <img src={minus} alt="-" />
           </button>
         </label>
       )}
-      {quantity < 3 && (
+      {!visible2 && !visible3 && (
         <button
           className="btn btn-ghost btn-add-field"
-          onClick={addField}
+          onClick={() => {
+            setVisible2(true);
+            setVisible3(true);
+          }}
           type="button"
         >
           <h4> add link ( up to 3 ) </h4>

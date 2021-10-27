@@ -16,6 +16,10 @@ const Card: FC<MyProps> = ({ data }) => {
   //Local state
   const [isOpen, setIsOpen] = useState(false);
 
+  //Const
+  const DEFAULT_IMAGE_URL =
+    "https://cdn.dribbble.com/users/2441743/screenshots/15643454/media/0e2498180f43d6bd007b72bc94a3f030.jpg?compress=1&resize=300x200";
+
   //Methods
   async function handleDelete(event, path, id) {
     event.preventDefault();
@@ -40,7 +44,7 @@ const Card: FC<MyProps> = ({ data }) => {
 
       <h2 className="title">{data.title}</h2>
       <p className="description">{data.description}</p>
-      <img src={data.imageURL} alt="img" />
+      <img src={data.imageURL ? data.imageURL : DEFAULT_IMAGE_URL} alt="img" />
 
       <div className="menu">
         {user.role === "teacher" && (

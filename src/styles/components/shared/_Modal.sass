@@ -8,8 +8,9 @@
   z-index: 1000
 
 .modal
-  background: $black
-  overflow: hidden
+  background: $gray1
+  overflow-y: scroll
+  //overflow: hidden
 
   position: fixed
   top: 50%
@@ -21,7 +22,7 @@
   width: 90vw
   min-height: 300px
   max-width: calc( $tabletBreakpoint - 48px )
-  max-height: 90vh
+  max-height: 98vh
 
   z-index: 1000
 
@@ -61,7 +62,7 @@
       width: 100%
       color: $white
 
-    .links
+    .links,.files
       grid-template-columns: 1fr 100px
       grid-template-rows: min-content min-content
       grid-template-areas: "label label" "input button"
@@ -69,20 +70,25 @@
       input
         grid-area: input
 
-      .btn-remove-field
-        filter: brightness(.5)
-        grid-area: button
-        border: 1px solid $red
-        color: $red
-        margin: .3em
-        padding: .3em
-        height: 30px
-        width: 80%
-        img
-          height: 12px
-        &:hover
-          filter: brightness(1)
-          transition: .1s ease
+    .btn-remove-field,.btn-clear-field
+      filter: brightness(.5)
+      grid-area: button
+      border: 1px solid $red
+      color: $red
+      margin: .3em
+      padding: .3em
+      height: 30px
+      width: 80%
+      img
+        height: 12px
+      &:hover
+        filter: brightness(1)
+        transition: .1s ease
+
+    .exists
+      display: grid
+      grid-template-columns: 1fr 100px
+      grid-template-areas: "label button"
 
   .btn-add-field
     filter: brightness(.5)

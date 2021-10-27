@@ -4,8 +4,8 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const storage = getStorage();
 
 // @ts-ignore
-export default async function uploadImage(file) {
-  const myRef = ref(storage, `${file.name}_${Date.now()}`);
+export default async function uploadFile(file, folder) {
+  const myRef = ref(storage, `${folder}/${file.name}_${Date.now()}`);
   await uploadBytes(myRef, file);
   return getDownloadURL(myRef);
 }

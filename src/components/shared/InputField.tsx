@@ -1,6 +1,7 @@
 //@ts-nocheck
 import { useRef } from "react";
 import InputFieldMultiple from "./InputFieldMultiple";
+import InputFieldMultipleFiles from "./InputFieldMultipleFiles";
 
 export default function InputField({ onChange, options, state }) {
   const { key, label, placeholder, type, mode, required } = options;
@@ -10,9 +11,9 @@ export default function InputField({ onChange, options, state }) {
 
   return (
     <>
-      {key !== "links" && (
+      {key !== "links" && key !== "files" && key !== "file" && (
         <label className={key}>
-          {label}
+          {label} {required && " - required"}
           <input
             ref={inputReference}
             value={state}
@@ -25,13 +26,29 @@ export default function InputField({ onChange, options, state }) {
       )}
 
       {key === "links" && (
-        <>
-          <InputFieldMultiple
-            onChange={onChange}
-            options={options}
-            state={state}
+        <InputFieldMultiple
+          onChange={onChange}
+          options={options}
+          state={state}
+        />
+      )}
+      {key === "files" && (
+        <InputFieldMultipleFiles
+          onChange={onChange}
+          options={options}
+          state={state}
+        />
+      )}
+      {key === "file" && (
+        <label className={key}>
+          <input
+            type={type}
+            /* onChange={(e) => {
+            setFiles({ ...files, l1: e.target.files[0] });
+            onChange(key, { ...files, l1: e.target.files[0] });
+          }} */
           />
-        </>
+        </label>
       )}
     </>
   );

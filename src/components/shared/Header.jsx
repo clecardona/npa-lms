@@ -1,24 +1,15 @@
 //NPM Packages
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 //Local files
 import { useAuth } from "state/AuthProvider";
 import logo from "assets/icns/bale-logo.png";
-import Toolbar from "components/shared/Toolbar";
+
 import Identificator from "./Identificator";
 
 export default function Header() {
   // Global state
-  const { user, setUser, setLoggedIn } = useAuth();
-  const history = useHistory();
-
-  // Methods
-  function onLogout() {
-    localStorage.setItem("uid", "");
-    setUser({});
-    setLoggedIn(false);
-    history.push("/login");
-  }
+  const { user } = useAuth();
 
   return (
     <header>
@@ -30,7 +21,6 @@ export default function Header() {
           </h2>
         </NavLink>
         <Identificator username={user.username} role={user.role} />
-        <Toolbar onLogout={onLogout} />
       </nav>
     </header>
   );

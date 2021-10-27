@@ -20,6 +20,8 @@ export default function Course() {
   const { courseID } = useParams();
   // Constants
   const course = getById(courseID, courses.data);
+  const DEFAULT_IMAGE_URL =
+    "https://cdn.dribbble.com/users/2441743/screenshots/15643454/media/0e2498180f43d6bd007b72bc94a3f030.jpg?compress=1&resize=800x300";
 
   return (
     <main className="page-course">
@@ -28,20 +30,15 @@ export default function Course() {
       {(!courses.loading && courses.error) === null && (
         <>
           <h2>{course.title}</h2>
-          <img src={course.imageURL} alt="img" className="illustration" />
+          <img
+            src={course.imageURL ? course.imageURL : DEFAULT_IMAGE_URL}
+            alt="img"
+            className="illustration"
+          />
           <p className="description">{course.content}</p>
 
           {course.links && <Links data={course.links} />}
-          {course.file && (
-            <a
-              href={course.file}
-              className="btn btn-third btn-file btn-180 "
-              download
-            >
-              <h4>Download file ⬇</h4>
-              {/* <Files data={course} /> */}
-            </a>
-          )}
+          {course.files && <Files data={course.files} />}
           <Link
             to={"/playlist/" + courseID}
             className="btn btn-third btn-video btn-180"

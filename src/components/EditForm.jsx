@@ -19,14 +19,17 @@ export default function CreateForm({ onClose, data }) {
     setForm({ ...form, ...field });
   }
   async function onSubmit(e) {
-    e.preventDefault();
-    setErrorMessage("");
-    const newCourse = { ...form };
-    await updateDocument("courses", newCourse.id, newCourse);
-    alert("Course updated");
-    onClose();
-    history.push("/");
+    if (window.confirm("Do you confirm the changes ?")) {
+      e.preventDefault();
+      setErrorMessage("");
+      await updateDocument("courses", data.id, { ...data, ...form });
+      alert("Course successfully updated");
+      onClose();
+      history.push("/");
+    }
   }
+
+  //console.log(data);
 
   //Components
   const Fields = fields.map((item) => (
@@ -37,6 +40,8 @@ export default function CreateForm({ onClose, data }) {
       onChange={onChange}
     />
   ));
+
+  //console.log(form);
 
   return (
     <form onSubmit={onSubmit}>

@@ -13,7 +13,7 @@
     "placeholder": "http://www.unsplash.com/someimage.png",
     "type": "text",
     "mode": "create",
-    "required": true
+    "required": false
   },
   {
     "key": "description",
@@ -36,6 +36,13 @@
     "label": "Link",
     "placeholder": "http://www.youtube.com/...",
     "type": "text",
+    "mode": "create",
+    "required": false
+  },
+  {
+    "key": "files",
+    "label": "File",
+    "type": "file",
     "mode": "create",
     "required": false
   }

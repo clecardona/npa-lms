@@ -14,12 +14,11 @@ export default function CreateForm({ onClose }) {
     description: "",
     imageURL: "",
     content: "",
-    links: { l1: "", l2: "", l3: "" },
+    links: {},
+    files: {},
   });
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
-
-  console.log(form.links);
 
   // Methods
   function onChange(key, value) {
@@ -36,6 +35,8 @@ export default function CreateForm({ onClose }) {
     onClose();
     history.push("/");
   }
+
+  console.log(form.links, form.files);
 
   //Components
   const Fields = fields.map((item) => (

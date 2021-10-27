@@ -5,7 +5,7 @@
     "placeholder": "Course title",
     "mode": "edit",
     "type": "text",
-    "required": true
+    "required": false
   },
   {
     "key": "imageURL",
@@ -13,7 +13,7 @@
     "placeholder": "http://www.unsplash.com/someimage.png",
     "mode": "edit",
     "type": "text",
-    "required": true
+    "required": false
   },
   {
     "key": "description",
@@ -21,7 +21,7 @@
     "placeholder": "Short description",
     "mode": "edit",
     "type": "text",
-    "required": true
+    "required": false
   },
   {
     "key": "content",
@@ -29,7 +29,7 @@
     "placeholder": "Course content",
     "mode": "edit",
     "type": "text",
-    "required": true
+    "required": false
   },
   {
     "key": "links",
@@ -37,6 +37,13 @@
     "placeholder": "http://www.youtube.com/...",
     "mode": "edit",
     "type": "text",
-    "required": true
+    "required": false
+  },
+  {
+    "key": "files",
+    "label": "File",
+    "type": "file",
+    "mode": "edit",
+    "required": false
   }
 ]

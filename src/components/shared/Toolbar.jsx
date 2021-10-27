@@ -1,6 +1,6 @@
 //NPM Packages
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 //Local files
 import { useAuth } from "state/AuthProvider";
@@ -9,11 +9,20 @@ import calendar from "assets/icns/calendar.png";
 import logout from "assets/icns/logout.png";
 import userIcon from "assets/icns/userIcon.png";
 
-export default function Toolbar({ onLogout }) {
+export default function Toolbar() {
   //Global
   const [isOpen, setIsOpen] = useState(false);
   const urlCalendar = "https://calendar.google.com/";
-  const { user } = useAuth();
+  const { user, setUser, setLoggedIn } = useAuth();
+  const history = useHistory();
+
+  // Methods
+  function onLogout() {
+    localStorage.setItem("uid", "");
+    setUser({});
+    setLoggedIn(false);
+    history.push("/login");
+  }
 
   return (
     <div className={isOpen ? "toolbar toolbar-open" : "toolbar"}>
