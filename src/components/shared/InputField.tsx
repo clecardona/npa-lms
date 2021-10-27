@@ -11,19 +11,22 @@ export default function InputField({ onChange, options, state }) {
 
   return (
     <>
-      {key !== "links" && key !== "files" && key !== "file" && (
-        <label className={key}>
-          {label} {required && " - required"}
-          <input
-            ref={inputReference}
-            value={state}
-            type={type}
-            placeholder={mode === "edit" ? state : placeholder}
-            required={required}
-            onChange={() => onChange(key, inputReference.current.value)}
-          ></input>
-        </label>
-      )}
+      {key !== "links" &&
+        key !== "files" &&
+        key !== "file" &&
+        key !== "avatarURL" && (
+          <label className={key}>
+            {label} {required && " - required"}
+            <input
+              ref={inputReference}
+              value={state}
+              type={type}
+              placeholder={mode === "edit" ? state : placeholder}
+              required={required}
+              onChange={() => onChange(key, inputReference.current.value)}
+            ></input>
+          </label>
+        )}
 
       {key === "links" && (
         <InputFieldMultiple
@@ -39,14 +42,13 @@ export default function InputField({ onChange, options, state }) {
           state={state}
         />
       )}
-      {key === "file" && (
-        <label className={key}>
+      {key === "avatarURL" && (
+        <label className="files">
           <input
-            type={type}
-            /* onChange={(e) => {
-            setFiles({ ...files, l1: e.target.files[0] });
-            onChange(key, { ...files, l1: e.target.files[0] });
-          }} */
+            type="file"
+            onChange={(e) => {
+              onChange(key, e.target.files[0]);
+            }}
           />
         </label>
       )}

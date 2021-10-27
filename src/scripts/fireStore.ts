@@ -1,6 +1,6 @@
 //@ts-nocheck
 // NPM packages
-import { Firestore, DocumentData, getDoc } from "firebase/firestore/lite";
+import { Firestore, getDoc } from "firebase/firestore/lite";
 import { collection, getDocs } from "firebase/firestore/lite";
 import {
   addDoc,
@@ -20,17 +20,17 @@ export async function createDoc(path: string, data: object) {
 
   if (data.files.l1) {
     const url = await uploadFile(data.files.l1, `courses/files`);
-    const name = l1.name;
+    const name = data.files.l1.name;
     newCourse.files.l1 = { url, name };
   }
   if (data.files.l2) {
     const url = await uploadFile(data.files.l2, `courses/files`);
-    const name = l1.name;
+    const name = data.files.l2.name;
     newCourse.files.l2 = { url, name };
   }
   if (data.files.l3) {
     const url = await uploadFile(data.files.l3, `courses/files`);
-    const name = l1.name;
+    const name = data.files.l3.name;
     newCourse.files.l3 = { url, name };
   }
   await addDoc(collectionReference, newCourse);
@@ -85,6 +85,15 @@ export async function updateDocument(path: string, id: string, data: object) {
     updatedCourse.files.l3 = { url, name };
   }
   await updateDoc(docReference, updatedCourse);
+}
+export async function updateProfile(path: string, id: string, data: object) {
+  const docReference = doc(firestoreInstance, path, id);
+  let updatedProfile = { ...data };
+  if (typeof data.avatarURL === "object") {
+    const url = await uploadFile(data.avatarURL, `users/avatar`);
+    updatedProfile.avatarURL = url;
+  }
+  await updateDoc(docReference, updatedProfile);
 }
 
 // Delete file

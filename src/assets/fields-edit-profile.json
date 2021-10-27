@@ -5,7 +5,7 @@
     "placeholder": "Lionel",
     "mode": "edit",
     "type": "text",
-    "required": true
+    "required": false
   },
   {
     "key": "lastname",
@@ -13,7 +13,7 @@
     "placeholder": "Messi",
     "mode": "edit",
     "type": "text",
-    "required": true
+    "required": false
   },
   {
     "key": "username",
@@ -21,7 +21,7 @@
     "placeholder": "l.messi99",
     "mode": "edit",
     "type": "text",
-    "required": true
+    "required": false
   },
   {
     "key": "description",
@@ -45,6 +45,14 @@
     "placeholder": "l.messi",
     "mode": "edit",
     "type": "text",
+    "required": false
+  },
+  {
+    "key": "avatarURL",
+    "label": "Profile Picture",
+    "placeholder": "",
+    "mode": "edit",
+    "type": "file",
     "required": false
   }
 ]

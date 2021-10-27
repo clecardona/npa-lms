@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 //Local imports
 import fields from "assets/fields-edit-profile.json";
 import InputField from "components/shared/InputField";
-import { updateDocument } from "scripts/fireStore";
+import { updateProfile } from "scripts/fireStore";
 
 export default function EditProfile({ onClose, data }) {
   //Local states
@@ -23,7 +23,7 @@ export default function EditProfile({ onClose, data }) {
     e.preventDefault();
     setErrorMessage("");
     const newData = { ...form };
-    await updateDocument("users", newData.id, newData);
+    await updateProfile("users", newData.id, newData);
     alert("Info updated");
     onClose();
     history.push(`/profile/${data.id}`);
@@ -39,6 +39,7 @@ export default function EditProfile({ onClose, data }) {
     />
   ));
 
+  console.log(form);
   return (
     <form onSubmit={onSubmit}>
       {Fields}
