@@ -23,6 +23,8 @@ export default function Profile() {
   const profile = getById(userID, users.data);
   const urlIG = "https://www.instagram.com/";
   const urlTW = "https://www.twitter.com/";
+  const urlBG =
+    "https://cdn.dribbble.com/users/454765/screenshots/15300792/media/3b08d07aec10e929d9e3275b8d3e6f41.gif";
   return (
     <>
       {users.loading === true && <Spinner />}
@@ -30,10 +32,9 @@ export default function Profile() {
       {(!users.loading && users.error) === null && (
         <main className="page-profile">
           <h2 className="head-title">profile </h2>
+          <img className="bg" src={urlBG} alt="bg" />
           <div className="container">
-            <div className="avatar">
-              <img src={profile.avatarURL} alt="img" />
-            </div>
+            <img className="avatar" src={profile.avatarURL} alt="avatar" />
             {profile.description && (
               <div className="description">
                 <p>{profile.description}</p>

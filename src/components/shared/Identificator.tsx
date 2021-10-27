@@ -8,7 +8,9 @@ interface MyProps {
 const Identificator: FC<MyProps> = ({ username, role }) => {
   return (
     <div className={`role ${role}`}>
-      <h3>@{username}</h3>
+      <h3>
+        <div className="dot" />@{username}
+      </h3>
       <h4>{role}</h4>
     </div>
   );
