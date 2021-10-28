@@ -16,6 +16,7 @@ export default function CreateForm({ onClose }) {
     content: "",
     links: {},
     files: {},
+    playlist: [{}],
   });
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();

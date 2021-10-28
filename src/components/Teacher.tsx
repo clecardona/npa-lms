@@ -4,7 +4,6 @@ import { useState } from "react";
 
 //Local imports
 import { useAuth } from "state/AuthProvider";
-import Identificator from "components/shared/Identificator";
 import Sorter from "components/shared/Sorter";
 import CoursesList from "components/CoursesList";
 import StudentList from "components/StudentList";

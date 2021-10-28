@@ -43,7 +43,11 @@ export default function StudentList() {
       {users.error !== null && <BoxError />}
       {(!users.loading && users.error) === null && (
         <>
-          <ul className="students">{Students}</ul>
+          {students.length > 0 ? (
+            <ul className="students">{Students}</ul>
+          ) : (
+            <h2 className="empty">No student yet, come back soon ...</h2>
+          )}
         </>
       )}
     </>

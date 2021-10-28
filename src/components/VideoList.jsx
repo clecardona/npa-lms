@@ -1,9 +1,9 @@
 import React from "react";
 
 export default function VideoList({ course, setVideo }) {
-  const Videos = course.playlist.map((item) => {
+  const Videos = course.playlist.map((item, index) => {
     return (
-      <li key={item.content}>
+      <li key={index}>
         <button onClick={() => setVideo(item)}>{item.content}</button>
       </li>
     );

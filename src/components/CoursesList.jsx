@@ -24,7 +24,13 @@ export default function CoursesList() {
       {courses.error !== null && <BoxError />}
 
       {(!courses.loading && courses.error) === null && (
-        <section className="cards">{Courses}</section>
+        <>
+          {courses.data.length > 0 ? (
+            <section className="cards">{Courses}</section>
+          ) : (
+            <h2 className="empty">No course yet, come back soon ...</h2>
+          )}
+        </>
       )}
     </>
   );
