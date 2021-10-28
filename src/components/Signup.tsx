@@ -40,12 +40,10 @@ export default function Signup() {
       role: "student",
       avatarURL: AVATAR_URL,
     };
-    // 1.TODO create a user in the database using the UID as the document id.
     await createDocumentWithId("users", uid, newUser);
-    // 2. update global state: user and loggedin
     setLoggedIn(true);
-    setUser(newUser);
-    // 3. redirect to home = course list
+    setUser({ ...newUser, id: uid });
+
     history.push("/");
   }
 
