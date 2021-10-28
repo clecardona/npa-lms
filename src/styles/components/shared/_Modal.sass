@@ -56,6 +56,7 @@
     width: 100%
     max-width: 90vw
     padding: .3em
+    gap: .5em
     label
       width: 100%
       color: $white
@@ -67,6 +68,8 @@
 
       input
         grid-area: input
+    .btn-ghost,.btn-main
+      margin: 1em 0
 
     .btn-remove-field,.btn-clear-field
       filter: brightness(.5)
@@ -75,7 +78,7 @@
       color: $red
       margin: .3em
       padding: .3em
-      height: 30px
+
       width: 80%
       img
         height: 12px
@@ -85,8 +88,39 @@
 
     .exists
       display: grid
-      grid-template-columns: 1fr 100px
+      grid-template-columns: 1fr 60px
       grid-template-areas: "label button"
+
+    .playlist-form-title
+      display: none
+
+    .playlist-item // playlist form
+      color: $white
+
+      margin-bottom: .8em
+
+      display: grid
+      gap: .3em
+      grid-template-columns: 1fr 100px
+      grid-template-rows: min-content min-content
+      grid-template-areas: "url button" " content button"
+
+      //height: min-content
+      padding: 0 .3em
+
+      justify-content: center
+      align-items: center
+
+      .playlist-url
+        grid-area: url
+
+      .playlist-content
+        grid-area: content
+
+      .btn-clear-field
+        grid-area: button
+        height: 44px
+
 @media only screen and (min-width: $tabletBreakpoint)
   .modal
     min-height: 300px
@@ -95,30 +129,37 @@
     box-shadow: 6px 6px 16px $black
     form
       padding: 1em 2em
+      gap: 1em
+      .playlist-item,.playlist-form-title
+        color: $white
+        display: grid
+        gap: 1em
+        margin: 0
 
-  .btn-add-field
-    filter: brightness(.5)
-    border: 1px solid $yellow
-    margin: .3em
-    padding: .3em
-    height: 30px
-    width: 300px
-    box-shadow: none
-    transform: skewX(-20deg)
-    h4
-      color: $yellow
-    img
-      height: 12px
-    &:hover
+        grid-template-columns: 1fr 1fr 100px
+        grid-template-rows: unset
+        grid-template-areas: "url content button"
+        border-bottom: none
 
-      filter: brightness(1)
-      transition: .1s ease
+      .btn-ghost,.btn-main
+        margin: 0
 
-  .playlist-item
-    display: flex
-    align-items: flex-end
-    .label
-      flex-grow: 2
-    button
-      flex-grow: 1
-      width: 70px
+      .btn-clear-field,.btn-add-field
+        height: 30px
+      .btn-add-field
+        filter: brightness(.5)
+        border: 1px solid $yellow
+        margin: .3em
+        padding: .3em
+        height: 30px
+        width: 300px
+        box-shadow: none
+        transform: skewX(-20deg)
+        h4
+          color: $yellow
+        img
+          height: 12px
+        &:hover
+
+          filter: brightness(1)
+          transition: .1s ease

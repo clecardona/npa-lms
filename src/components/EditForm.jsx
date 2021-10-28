@@ -29,8 +29,6 @@ export default function EditForm({ onClose, data }) {
     }
   }
 
-  //console.log(data);
-
   //Components
   const Fields = fields.map((item) => (
     <InputField
@@ -40,8 +38,6 @@ export default function EditForm({ onClose, data }) {
       onChange={onChange}
     />
   ));
-
-  //console.log(form);
 
   return (
     <form onSubmit={onSubmit}>

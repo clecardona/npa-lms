@@ -11,10 +11,8 @@ export default function EditPlaylist({ onClose, data }) {
   //Local states
   const [form, setForm] = useState(data);
   const [errorMessage, setErrorMessage] = useState("");
-  //const [playlist, setPlaylist] = useState(data.playlist);
   const history = useHistory();
 
-  //[...Array(n)].map((e, i) => <span className="busterCards" key={i}>♦</span>)
   // Methods
   function onChange(key, value, index) {
     const newPlaylist = [...form.playlist]; //arr
@@ -25,7 +23,7 @@ export default function EditPlaylist({ onClose, data }) {
   }
 
   function addField() {
-    const newPlaylist = [...form.playlist]; //arr
+    const newPlaylist = [...form.playlist];
     newPlaylist.push({ content: "", url: "" });
     setForm({ ...form, playlist: newPlaylist });
   }
@@ -40,7 +38,7 @@ export default function EditPlaylist({ onClose, data }) {
   }
 
   function clearField(idx) {
-    const newPlaylist = [...form.playlist]; //arr
+    const newPlaylist = [...form.playlist];
     console.log("bef", idx, newPlaylist);
     newPlaylist.splice(idx, 1);
     console.log("aft", idx, newPlaylist);
@@ -67,6 +65,11 @@ export default function EditPlaylist({ onClose, data }) {
 
   return (
     <form onSubmit={onSubmit}>
+      <div className="playlist-form-title">
+        <p>Youtube Link</p>
+        <p>Content description</p>
+      </div>
+
       {Fields}
       <p>{errorMessage}</p>
       <button
@@ -74,7 +77,7 @@ export default function EditPlaylist({ onClose, data }) {
         onClick={addField}
         type="button"
       >
-        <h4> +1 slot </h4>
+        <h4> Add a slot </h4>
       </button>
       <button className="btn btn-main btn-140">
         <h4>Submit</h4>

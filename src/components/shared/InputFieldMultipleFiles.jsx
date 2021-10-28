@@ -51,7 +51,7 @@ export default function InputFieldMultipleFiles({ onChange, options, state }) {
     
       { mode === "create" && (
         <button
-          className="btn btn-ghost btn-add-field"
+          className="btn btn-ghost btn-add-field btn-180"
           onClick={() => {
             setVisible(!visible);
           }}

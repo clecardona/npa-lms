@@ -15,6 +15,7 @@ export default function Toolbar() {
   const urlCalendar = "https://calendar.google.com/";
   const { user, setUser, setLoggedIn } = useAuth();
   const history = useHistory();
+  console.log(user);
 
   // Methods
   function onLogout() {

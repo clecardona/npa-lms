@@ -10,7 +10,7 @@
   {
     "key": "content",
     "label": "Short description",
-    "placeholder": "Step 1",
+    "placeholder": "Content : Step 1",
     "mode": "edit",
     "type": "text",
     "required": false

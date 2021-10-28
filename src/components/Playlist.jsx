@@ -32,11 +32,13 @@ export default function Playlist() {
           {course.playlist && (
             <Player initialVideo={course.playlist[0]} course={course} />
           )}
+          <div className="buttons">
+            <Link to={"/courses/" + courseID} className="btn btn-main btn-180">
+              <h4>Back to course</h4>
+            </Link>
+          </div>
         </>
       )}
-      <Link to={"/courses/" + courseID} className="btn btn-main btn-180">
-        <h4>Back to course</h4>
-      </Link>
     </main>
   );
 }

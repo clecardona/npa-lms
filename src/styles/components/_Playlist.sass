@@ -1,15 +1,18 @@
 .page-playlist
     background: $gray1
+    padding: 1em 0
 
     display: grid
-    grid-template-columns: 3fr 1fr
-    grid-template-rows: min-content 1fr minmax( 20% , 50px )
-    grid-template-areas: "title list" "video list" "description list"
+    grid-template-columns: 1fr
+    grid-template-rows: repeat(5,min-content)
+    grid-template-areas: "title ""video" "list" "description " "button "
 
     .title
         grid-area: title
-        padding: .3em 1em
+        background: $black
         color: $white
+        padding: 2.5em 1em .5em 1em
+
     .video
         grid-area: video
         background: $black
@@ -19,14 +22,24 @@
 
     .description
         grid-area: description
-        padding: .3em 1em
+        padding: .5em
         color: $white
+        min-height: 100px
+        p
+            background: rgba(0,0,0,.1)
+            padding: 1em
+            height: 100%
+
+    .buttons
+        grid-area: button
+        justify-self: center
+        padding: 1em
 
     .list
         grid-area: list
-        background: $gray2
+        background: #0e0e0e
         padding: .5em
-        margin-right: 70px
+
         ul
 
             display: grid
@@ -42,3 +55,21 @@
                     width: 100%
                     padding: .3em
                     min-height: 3em
+
+    @media only screen and (min-width: $desktopBreakpoint)
+
+        padding: 0
+        grid-template-columns: 3fr 1fr
+        grid-template-rows: min-content 1fr minmax( 20% , 50px ) min-content
+        grid-template-areas: "title list" "video list" "description list" "button list"
+        .title
+            grid-area: title
+            background: none
+            padding: .3em 1em
+        .description
+            padding: 0
+            p
+                background: none
+        .buttons
+            padding-left: 2em
+            justify-self: left
