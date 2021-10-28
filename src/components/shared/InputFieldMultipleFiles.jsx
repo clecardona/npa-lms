@@ -57,7 +57,7 @@ export default function InputFieldMultipleFiles({ onChange, options, state }) {
           }}
           type="button"
         >
-          <h4> {visible ? "show less":"more ( up to 3 files  )"} </h4>
+          <h4> {visible ? "show less":"more files ( < 3 )"} </h4>
         </button>
       )}
     </>

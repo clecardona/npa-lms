@@ -1,19 +1,16 @@
 .page-course
-    margin: auto
-    width: 100%
-    max-width: 1000px
-    display: grid
-    grid-auto-flow: row
-    grid-auto-rows: min-content
-
-    padding: 1em
-
-    justify-items: center
+    padding-top: 3em
+    .head-title
+        color: $white
+        width: 100%
+        background: rgba(0,0,0,.3)
+        text-transform: capitalize
+        padding: .5em 1em
     .container
         padding: 1em
 
         display: grid
-        gap: 1em
+        gap: .3em
         grid-auto-flow: row
         grid-auto-rows: max-content
 
@@ -22,10 +19,19 @@
 
         .illustration
             width: 100%
+            min-height: 200px
             object-fit: cover
-        ul
-            width: 100%
-            max-width: 300px
+            ul
+                width: 100%
+                max-width: 300px
+        .description
+            .btn-video
+                margin-bottom: .3em
+                min-height: 44px
+            p
+                background: rgba(255,255 ,255 ,.2 )
+                padding: 1em
+                border-radius: .5em
 
         .links,.files
 
@@ -34,6 +40,9 @@
             grid-auto-flow: column
             justify-content: flex-start
             width: 100%
+            background: rgba(255,255 ,255 ,.2 )
+            padding: 1em
+            border-radius: .5em
 
         .btn-link
             color: $blue
@@ -65,47 +74,53 @@
                     margin-left: .5em
             &:hover
                 filter: brightness(1)
+        .buttons
+            padding: 1.5em 0
 
-        .btn-third
-            justify-self: flex-start
-        .btn-main
-            justify-self: center
-            margin: 2em
+            @include flex-full-centered
+            *
+                margin: 0 .3em
+                text-align: center
 
-@media only screen and (min-width: $desktopBreakpoint)
-    .container
-        grid-template-columns: 2fr 1fr
-        grid-template-rows: repeat(6,min-content)
-        grid-template-areas: "title title" "img video" "img description" "img links" "img files" "buttons buttons"
-        width: 100%
+@media only screen and (min-width: $tabletBreakpoint)
+    .page-course
+        padding-top: 0
 
-        margin-right: 70px
+        .container
+            padding-top: 5em
 
-        .title
-            grid-area: title
-
-        .btn-video
-            grid-area: video
-
-        .illustration
-            grid-area: img
-            height: 100%
             width: 100%
-            object-fit: cover
-            object-position: top
-            background: red
-        .description
-            grid-area: description
-            background: rgba(255,255 ,255 ,.2 )
-            min-height: 120px
-            padding: 1em
-            border-radius: .5em
-        .links
-            grid-area: links
-            background: rgba(255,255 ,255 ,.2 )
-            padding: 1em
-            border-radius: .5em
-        .files
-            grid-area: files
-        .btn-main
-            grid-area: buttons
+            min-height: 60vh
+
+            padding-right: 70px + 12px
+
+            grid-template-columns: 2fr 1fr
+            grid-template-rows: repeat(6,min-content)
+            grid-template-areas: "title title" "img description" "img description" "img links" "img files" "buttons buttons"
+
+            .title
+                grid-area: title
+
+            .illustration
+                grid-area: img
+                height: 100%
+                width: 100%
+                object-fit: cover
+                object-position: top
+                background: red
+            .description
+                grid-area: description
+                display: flex
+                flex-direction: column
+
+                p
+
+                    height: 100%
+            .links
+                grid-area: links
+
+            .files
+                grid-area: files
+
+            .buttons
+                grid-area: buttons

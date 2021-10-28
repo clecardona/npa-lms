@@ -81,7 +81,7 @@ export default function InputFieldMultiple({ onChange, options, state }) {
         }}
         type="button"
       >
-        <h4> {visible ? "show less":"more ( up to 3 links  )"} </h4>
+        <h4> {visible ? "show less":"more links ( < 3 )"} </h4>
       </button>
       )}
     </>

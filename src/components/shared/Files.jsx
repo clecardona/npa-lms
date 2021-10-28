@@ -1,7 +1,9 @@
 import React from "react";
 
 export default function Files({ data }) {
-  // REFACTOR THIS SHIT IF POSSIBLE
+  if (!data.l1) {
+    return <h24 className="files">No files for this course...</h24>;
+  }
   return (
     <div className="files">
       {data.l1 && (

@@ -28,6 +28,7 @@ export default function Course() {
 
   return (
     <main className="page-course">
+      <h2 className="head-title">Course </h2>
       {courses.loading === true && <Spinner />}
       {courses.error !== null && <BoxError />}
       {(!courses.loading && courses.error) === null && (
@@ -39,34 +40,41 @@ export default function Course() {
               src={course.imageURL ? course.imageURL : DEFAULT_IMAGE_URL}
               alt="img"
             />
-            <p className="description">{course.content}</p>
+            <div className="description">
+              {course.playlist[0].url && (
+                <Link to={"/playlist/" + courseID} className="btn btn-video">
+                  <h4>
+                    Video playlist <img src={play} alt="" />
+                  </h4>
+                </Link>
+              )}
+              <p>{course.content}</p>
+            </div>
 
-            {course.links && <Links data={course.links} />}
-            {course.files && <Files data={course.files} />}
-            <Link to={"/playlist/" + courseID} className="btn btn-video">
-              <h4>
-                Video playlist <img src={play} alt="" />
-              </h4>
-            </Link>
-          </div>
-          <div className="buttons">
-            <Link to="/" className="btn btn-main btn-180">
-              <h4>Back to courses</h4>
-            </Link>
-            <button
-              className="btn btn-ghost btn-180"
-              onClick={() => setIsOpen(true)}
-            >
-              <h4>Edit video playlist</h4>
-            </button>
-            <Modal
-              type="edit-playlist"
-              isOpen={isOpen}
-              onClose={() => setIsOpen(false)}
-              data={course}
-            >
-              Edit video playlist
-            </Modal>
+            <Links data={course.links} />
+            <Files data={course.files} />
+
+            <div className="buttons">
+              <Link to="/" className="btn btn-main btn-180">
+                <h4>Back to courses</h4>
+              </Link>
+              <button
+                className="btn btn-ghost btn-180"
+                onClick={() => setIsOpen(true)}
+              >
+                <h4>
+                  {course.playlist.url ? "Edit" : "Create"} video playlist
+                </h4>
+              </button>
+              <Modal
+                type="edit-playlist"
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
+                data={course}
+              >
+                {course.playlist.url ? "Edit" : "Create"} video playlist
+              </Modal>
+            </div>
           </div>
         </>
       )}

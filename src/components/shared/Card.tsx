@@ -41,28 +41,27 @@ const Card: FC<MyProps> = ({ data }) => {
           Edit course
         </Modal>
       )}
+      <img src={data.imageURL ? data.imageURL : DEFAULT_IMAGE_URL} alt="img" />
 
       <h2 className="title">{data.title}</h2>
       <p className="description">{data.description}</p>
-      <img src={data.imageURL ? data.imageURL : DEFAULT_IMAGE_URL} alt="img" />
 
       <div className="menu">
         {user.role === "teacher" && (
           <>
             <button onClick={() => setIsOpen(true)}>
-              <h3>Edit</h3>
+              <h4>Edit</h4>
             </button>
             <button
               className="btn"
               onClick={(event) => handleDelete(event, "courses", data.id)}
             >
-              <h3>Delete</h3>
+              <h4>Delete</h4>
             </button>
           </>
         )}
-
-        <Link to={"/courses/" + data.id}>
-          <h3>View Course</h3>
+        <Link to={"/courses/" + data.id} className="btn btn-orange">
+          <h4>View Course</h4>
         </Link>
       </div>
     </div>

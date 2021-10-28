@@ -1,5 +1,7 @@
 export default function Links({ data }) {
-  // REFACTOR THIS SHIT IF POSSIBLE
+  if (!data.l1) {
+    return <h4 className="links">No links for this course...</h4>;
+  }
   return (
     <div className="links">
       {data.l1 && (

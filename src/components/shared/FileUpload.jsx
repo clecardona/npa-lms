@@ -1,4 +1,4 @@
-export default function FileUpload({ hook, onChange, item, index, action }) {
+export default function FileUpload({ hook, onChange, item, index }) {
   const [files, setFiles] = hook;
   return (
     <label className="files">

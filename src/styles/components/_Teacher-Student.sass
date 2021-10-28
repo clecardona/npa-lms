@@ -22,11 +22,9 @@
         @include flex-full-centered
 
     .cards
-
         display: grid
         gap: 18px
         grid-auto-flow: row
-        padding: 1em
 
         @media only screen and (min-width: $tabletBreakpoint)
             margin-right: 70px
@@ -37,27 +35,30 @@
                 grid-template-columns: 1fr 1fr 1fr 1fr
 
         .card
+            position: relative
             $card-height: 300px
             overflow: hidden
-            background: $white
-            color: $black
+            background: $black
+            color: $white
 
-            min-width: 280px
+            min-width: 300px
             width: 100%
             max-width: 500px
             height: $card-height
-            border-radius: 1em
+
+            padding: .5em
 
             display: grid
-            grid-template-columns: 2fr 1fr
-            grid-template-rows: min-content 1fr min-content
 
-            grid-template-areas: "title img""description img ""menu menu"
+            grid-template-rows: min-content 1fr min-content
+            grid-template-areas: "title ""description ""menu "
 
             img
-                grid-area: img
+                position: absolute
+                z-index: 0
+                filter: brightness(.5)
                 height: 100%
-                width: 100%
+
                 object-fit: cover
                 object-position: top center
 
@@ -66,6 +67,7 @@
                 padding: 0 18px
 
             .title
+                z-index: 1
                 margin: 12px 0
                 grid-area: title
                 justify-self: center
@@ -75,29 +77,25 @@
                 text-transform: capitalize
 
             .description
+                z-index: 1
 
                 grid-area: description
                 max-width: 350px
 
             .menu
+                z-index: 1
                 grid-area: menu
-                background: $black
-
                 height: 50px
 
                 display: grid
                 grid-auto-flow: column
-
                 justify-items: center
                 align-items: center
+
                 a,button
                     color: $white
                     &:hover
                         transition: .2s ease
                         color: $yellow
-
-    .btn
-        justify-self: center
-        &-300
-            h3
-                color: $yellow
+                .btn-orange
+                    box-shadow: 2px 2px 2px rgba(0,0 ,0 ,.12 )

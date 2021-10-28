@@ -37,8 +37,6 @@ export default function CreateForm({ onClose }) {
     history.push("/");
   }
 
-  console.log(form.links, form.files);
-
   //Components
   const Fields = fields.map((item) => (
     <InputField
