@@ -1,5 +1,6 @@
 //@ts-nocheck
 //NPM Packages
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 //Local imports
@@ -11,13 +12,15 @@ import Links from "./shared/Links";
 import useFetch from "hooks/useFetch";
 import Spinner from "./shared/Spinner";
 import BoxError from "./shared/BoxError";
+import Modal from "./shared/Modal";
 
 export default function Course() {
   //Global state
   const { dispatchCourses } = useCourses();
   const courses = useFetch("courses", dispatchCourses);
-  //Local state
+  //Local states
   const { courseID } = useParams();
+  const [isOpen, setIsOpen] = useState(false);
   // Constants
   const course = getById(courseID, courses.data);
   const DEFAULT_IMAGE_URL =
@@ -46,9 +49,25 @@ export default function Course() {
               </h4>
             </Link>
           </div>
-          <Link to="/" className="btn btn-main btn-180">
-            <h4>Back to courses</h4>
-          </Link>
+          <div className="buttons">
+            <Link to="/" className="btn btn-main btn-180">
+              <h4>Back to courses</h4>
+            </Link>
+            <button
+              className="btn btn-ghost btn-180"
+              onClick={() => setIsOpen(true)}
+            >
+              <h4>Edit video playlist</h4>
+            </button>
+            <Modal
+              type="edit-playlist"
+              isOpen={isOpen}
+              onClose={() => setIsOpen(false)}
+              data={course}
+            >
+              Edit video playlist
+            </Modal>
+          </div>
         </>
       )}
     </main>

@@ -7,7 +7,7 @@ import fields from "assets/fields-edit.json";
 import InputField from "./shared/InputField";
 import { updateDocument } from "scripts/fireStore";
 
-export default function CreateForm({ onClose, data }) {
+export default function EditForm({ onClose, data }) {
   //Local states
   const [form, setForm] = useState(data);
   const [errorMessage, setErrorMessage] = useState("");

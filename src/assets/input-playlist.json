@@ -1,0 +1,18 @@
+[
+  {
+    "key": "url",
+    "label": "Youtube Link",
+    "placeholder": "Copy Youtube URL of your video there",
+    "mode": "edit",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "content",
+    "label": "Short description",
+    "placeholder": "Step 1",
+    "mode": "edit",
+    "type": "text",
+    "required": false
+  }
+]

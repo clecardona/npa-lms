@@ -14,7 +14,7 @@ export default function Teacher() {
   // Global state
   const { user } = useAuth();
 
-  //Local state
+  //Local states
   const [selection, setSelection] = useState("courses");
   const [isOpen, setIsOpen] = useState(false);
 
