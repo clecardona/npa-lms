@@ -38,12 +38,5 @@
     "type": "text",
     "mode": "create",
     "required": false
-  },
-  {
-    "key": "files",
-    "label": "File",
-    "type": "file",
-    "mode": "create",
-    "required": false
   }
 ]

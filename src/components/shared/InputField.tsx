@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { useRef } from "react";
-import InputFieldMultiple from "./InputFieldMultiple";
+import InputLinks from "./InputLinks";
 import InputFieldMultipleFiles from "./InputFieldMultipleFiles";
 
 export default function InputField({ onChange, options, state }) {
@@ -16,7 +16,7 @@ export default function InputField({ onChange, options, state }) {
         key !== "file" &&
         key !== "avatarURL" && (
           <label className={key}>
-            {label} {required && " - required"}
+            {label} {required && "  ( required )"}
             <input
               ref={inputReference}
               value={state}
@@ -28,13 +28,6 @@ export default function InputField({ onChange, options, state }) {
           </label>
         )}
 
-      {key === "links" && (
-        <InputFieldMultiple
-          onChange={onChange}
-          options={options}
-          state={state}
-        />
-      )}
       {key === "files" && (
         <InputFieldMultipleFiles
           onChange={onChange}

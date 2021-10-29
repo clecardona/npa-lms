@@ -39,9 +39,7 @@ export default function EditPlaylist({ onClose, data }) {
 
   function clearField(idx) {
     const newPlaylist = [...form.playlist];
-    console.log("bef", idx, newPlaylist);
     newPlaylist.splice(idx, 1);
-    console.log("aft", idx, newPlaylist);
     setForm({ ...form, playlist: newPlaylist });
   }
 

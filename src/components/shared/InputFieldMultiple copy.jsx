@@ -11,6 +11,7 @@ export default function InputFieldMultiple({ onChange, options, state }) {
  //Local states
  const [visible, setVisible] = useState(false);
  const [links, setLinks] = useState(state);
+ console.log([links])
 
   //Methods
   function clearField(index) {
@@ -18,6 +19,9 @@ export default function InputFieldMultiple({ onChange, options, state }) {
     delete newFiles.[`l${index}`];
     setLinks(newFiles);
     onChange(key, newFiles);
+  }
+  function cf(idx){
+
   }
 
   // todo-refactor more if possible and time
