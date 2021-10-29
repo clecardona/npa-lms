@@ -14,6 +14,10 @@ This project was bootstrapped with Create React App.
 This is a Learning platform website where you can learn new football skills.
 
 [Go to website](https://lms-football.web.app/)
+In order to access the teacher section here are credentials:
+
+- email : admina@admin.com
+- password : adminadmin
 
 ## 2. Setup
 

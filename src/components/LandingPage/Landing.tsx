@@ -30,7 +30,6 @@ export default function Landing() {
     <div className="page-landing">
       <div className="hero" id="hero">
         <VideoBG />
-
         <div className="bloc">
           <div className="title">
             <h1>

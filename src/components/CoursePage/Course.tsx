@@ -8,7 +8,7 @@ import play from "assets/icns/play.svg";
 import { getById } from "scripts/methods";
 import { useCourses } from "state/CoursesProvider";
 import useFetch from "hooks/useFetch";
-import Files from "components/shared/Files";
+import Files from "components/CoursePage/Files";
 import Links from "components/CoursePage/Links";
 import Spinner from "components/shared/Spinner";
 import BoxError from "components/shared/BoxError";
