@@ -3,7 +3,7 @@ import { useState } from "react";
 import FileExists from "./FileExists";
 import FileUpload from "./FileUpload";
 
-export default function InputFieldMultipleFiles({ onChange, options, state }) {
+export default function InputFiles({ onChange, options, state }) {
   const { key, label,  mode } = options;
   //Local states
   const [visible, setVisible] = useState(false);
@@ -13,6 +13,8 @@ export default function InputFieldMultipleFiles({ onChange, options, state }) {
   //var filesize = ((files[x].size/1024)/1024).toFixed(4); // MB
 
   //methods
+
+  
   function clearField(index) {
     let newFiles = { ...files };
     delete newFiles.[`l${index}`];

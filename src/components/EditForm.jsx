@@ -5,7 +5,9 @@ import { useHistory } from "react-router-dom";
 //Local imports
 import fields from "assets/fields-edit.json";
 import InputField from "./shared/InputField";
+import InputLinks from "components/shared/InputLinks";
 import { updateDocument } from "scripts/fireStore";
+import InputFiles from "./shared/InputFiles";
 
 export default function EditForm({ onClose, data }) {
   //Local states
@@ -13,6 +15,7 @@ export default function EditForm({ onClose, data }) {
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
 
+  console.log(form);
   // Methods
   function onChange(key, value) {
     const field = { [key]: value };
@@ -39,9 +42,13 @@ export default function EditForm({ onClose, data }) {
     />
   ));
 
+  console.log(form);
+
   return (
     <form onSubmit={onSubmit}>
       {Fields}
+      <InputLinks state={form} setForm={setForm} />
+      <InputFiles state={form} setForm={setForm} />
       <p>{errorMessage}</p>
       <button className="btn btn-main btn-140">
         <h4>Submit</h4>

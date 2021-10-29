@@ -76,8 +76,6 @@
         grid-area: button
         border: 1px solid $red
         color: $red
-        margin: .3em
-        padding: .3em
 
         width: 80%
         img
@@ -132,6 +130,14 @@
       form
         padding: 1em 2em
         gap: 1em
+
+        .links-item,.files-item
+          display: grid
+          gap: 1em
+          grid-template-columns: 1fr 100px
+          grid-template-areas: "url button"
+          align-items: center
+
         .playlist-item,.playlist-form-title
           color: $white
           display: grid
@@ -147,13 +153,13 @@
           margin: 0
 
         .btn-clear-field,.btn-add-field
-          height: 30px
+          height: 44px
         .btn-add-field
           filter: brightness(.5)
           border: 1px solid $yellow
           margin: .3em
           padding: .3em
-          height: 30px
+
           width: 300px
           box-shadow: none
           transform: skewX(-20deg)

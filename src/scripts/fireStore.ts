@@ -9,31 +9,28 @@ import {
   updateDoc,
   setDoc,
 } from "firebase/firestore/lite";
+import { url } from "inspector";
 import { firestoreInstance } from "scripts/firebase";
 import uploadFile from "scripts/storage";
 
 // Create doc with auto id
 export async function createDoc(path: string, data: object) {
   const collectionReference = collection(firestoreInstance, path);
-
   let newCourse = { ...data };
-
-  if (data.files.l1) {
-    const url = await uploadFile(data.files.l1, `courses/files`);
-    const name = data.files.l1.name;
-    newCourse.files.l1 = { url, name };
-  }
-  if (data.files.l2) {
-    const url = await uploadFile(data.files.l2, `courses/files`);
-    const name = data.files.l2.name;
-    newCourse.files.l2 = { url, name };
-  }
-  if (data.files.l3) {
-    const url = await uploadFile(data.files.l3, `courses/files`);
-    const name = data.files.l3.name;
-    newCourse.files.l3 = { url, name };
+  if (data.files) {
+    const field = await getUrlNameArray(data.files);
+    newCourse.files = field;
+    console.log(newCourse);
   }
   await addDoc(collectionReference, newCourse);
+}
+
+function getUrlNameArray(files) {
+  let promises = files.map(async (item) => {
+    const url = await uploadFile(item);
+    return { name: item.name, url: url };
+  });
+  return Promise.all(promises);
 }
 
 export async function createDocumentWithId(
@@ -68,22 +65,12 @@ export async function getDocument(path: string, id: string) {
 export async function updateDocument(path: string, id: string, data: object) {
   const docReference = doc(firestoreInstance, path, id);
   let updatedCourse = { ...data };
+  if (data.files) {
+    const field = await getUrlNameArray(data.files);
+    newCourse.files = field;
+    console.log(newCourse);
+  }
 
-  if (data.files.l1) {
-    const url = await uploadFile(data.files.l1, `courses/files`);
-    const name = data.files.l1.name;
-    updatedCourse.files.l1 = { url, name };
-  }
-  if (data.files.l2) {
-    const url = await uploadFile(data.files.l2, `courses/files`);
-    const name = data.files.l2.name;
-    updatedCourse.files.l2 = { url, name };
-  }
-  if (data.files.l3) {
-    const url = await uploadFile(data.files.l3, `courses/files`);
-    const name = data.files.l3.name;
-    updatedCourse.files.l3 = { url, name };
-  }
   await updateDoc(docReference, updatedCourse);
 }
 export async function updateProfile(path: string, id: string, data: object) {

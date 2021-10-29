@@ -30,13 +30,5 @@
     "type": "text",
     "mode": "create",
     "required": true
-  },
-  {
-    "key": "links",
-    "label": "Link",
-    "placeholder": "http://www.youtube.com/...",
-    "type": "text",
-    "mode": "create",
-    "required": false
   }
 ]

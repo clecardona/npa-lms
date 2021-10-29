@@ -30,20 +30,5 @@
     "mode": "edit",
     "type": "text",
     "required": false
-  },
-  {
-    "key": "links",
-    "label": "Link",
-    "placeholder": "http://www.medium.com/...",
-    "mode": "edit",
-    "type": "text",
-    "required": false
-  },
-  {
-    "key": "files",
-    "label": "File",
-    "type": "file",
-    "mode": "edit",
-    "required": false
   }
 ]
