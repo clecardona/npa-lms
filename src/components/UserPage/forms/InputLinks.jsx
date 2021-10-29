@@ -18,6 +18,8 @@ export default function InputLinks({ state, setForm }) {
     newLinks.splice(idx, 1);
     setForm({ ...state, links: newLinks });
   }
+
+  console.log(state.links);
   //Component
   const Links = state.links.map((item, index) => (
     <div className="links-item" key={index}>

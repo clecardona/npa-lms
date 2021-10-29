@@ -1,15 +1,17 @@
 //NPM Packages
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
-import { useUsers } from "state/UsersProvider";
-import { getById } from "scripts/methods";
-import useFetch from "hooks/useFetch";
-import Spinner from "./shared/Spinner";
-import BoxError from "./shared/BoxError";
+
+//Local Files
 import twitter from "assets/icns/twitter.png";
 import instagram from "assets/icns/instagram.png";
+import BoxError from "components/shared/BoxError";
+import Modal from "components/shared/Modal";
+import Spinner from "components/shared/Spinner";
+import useFetch from "hooks/useFetch";
+import { getById } from "scripts/methods";
 import { useAuth } from "state/AuthProvider";
-import Modal from "./shared/Modal";
+import { useUsers } from "state/UsersProvider";
 
 export default function Profile() {
   //Global state

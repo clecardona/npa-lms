@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import arrowDown from "assets/icns/arrowDown.png";
 import flip from "assets/icns/kickout.png";
 import articles from "assets/home/articles.json";
-import VideoBG from "components/VideoBG";
+import VideoBG from "components/LandingPage/VideoBG";
 
 //Components
 

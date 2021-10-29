@@ -1,9 +1,12 @@
+//NPM Packages
 import reactDom from "react-dom";
+
+//Local Files
 import cross from "assets/icns/cross.png";
-import CreateForm from "components/CreateForm";
-import EditForm from "components/EditForm";
-import EditProfile from "components/EditProfile";
-import EditPlaylist from "./EditPlaylist";
+import CreateForm from "components/UserPage/forms/CreateForm";
+import EditForm from "components/UserPage/forms/EditForm";
+import EditProfile from "components/ProfilePage/EditProfile";
+import EditPlaylist from "components/PlaylistPage/form/EditPlaylist";
 
 export default function Modal({ isOpen, onClose, data, children, type }) {
   if (!isOpen) return null;

@@ -18,7 +18,7 @@ const Card: FC<MyProps> = ({ data }) => {
 
   //Const
   const DEFAULT_IMAGE_URL =
-    "https://cdn.dribbble.com/users/2441743/screenshots/15643454/media/0e2498180f43d6bd007b72bc94a3f030.jpg?compress=1&resize=300x200";
+    "https://cdn.dribbble.com/users/1890641/screenshots/5408138/media/b384d198d0631718554f88a93b89f9ae.png?compress=1&resize=1000x750";
 
   //Methods
   async function handleDelete(event, path, id) {

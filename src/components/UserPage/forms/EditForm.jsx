@@ -3,29 +3,33 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 //Local imports
-import fields from "assets/fields-edit-profile.json";
+import fields from "./assets/fields-edit.json";
 import InputField from "components/shared/InputField";
-import { updateProfile } from "scripts/fireStore";
+import InputLinks from "components/UserPage/forms/InputLinks";
+import { updateDocument } from "scripts/fireStore";
+import InputFiles from "components/UserPage/forms/InputFiles";
 
-export default function EditProfile({ onClose, data }) {
+export default function EditForm({ onClose, data }) {
   //Local states
   const [form, setForm] = useState(data);
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
 
+  console.log(form);
   // Methods
   function onChange(key, value) {
     const field = { [key]: value };
     setForm({ ...form, ...field });
   }
   async function onSubmit(e) {
-    e.preventDefault();
-    setErrorMessage("");
-    const newData = { ...form };
-    await updateProfile("users", newData.id, newData);
-    alert("Info updated");
-    onClose();
-    history.push(`/profile/${data.id}`);
+    if (window.confirm("Do you confirm the changes ?")) {
+      e.preventDefault();
+      setErrorMessage("");
+      await updateDocument("courses", data.id, { ...data, ...form });
+      alert("Course successfully updated");
+      onClose();
+      history.push("/");
+    }
   }
 
   //Components
@@ -41,6 +45,8 @@ export default function EditProfile({ onClose, data }) {
   return (
     <form onSubmit={onSubmit}>
       {Fields}
+      <InputLinks state={form} setForm={setForm} />
+      <InputFiles state={form} setForm={setForm} />
       <p>{errorMessage}</p>
       <button className="btn btn-main btn-140">
         <h4>Submit</h4>

@@ -4,15 +4,15 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 //Local imports
+import play from "assets/icns/play.svg";
 import { getById } from "scripts/methods";
 import { useCourses } from "state/CoursesProvider";
-import play from "assets/icns/play.svg";
-import Files from "./shared/Files";
-import Links from "./shared/Links";
 import useFetch from "hooks/useFetch";
-import Spinner from "./shared/Spinner";
-import BoxError from "./shared/BoxError";
-import Modal from "./shared/Modal";
+import Files from "components/shared/Files";
+import Links from "components/CoursePage/Links";
+import Spinner from "components/shared/Spinner";
+import BoxError from "components/shared/BoxError";
+import Modal from "components/shared/Modal";
 
 export default function Course() {
   //Global state
@@ -24,7 +24,7 @@ export default function Course() {
   // Constants
   const course = getById(courseID, courses.data);
   const DEFAULT_IMAGE_URL =
-    "https://cdn.dribbble.com/users/2441743/screenshots/15643454/media/0e2498180f43d6bd007b72bc94a3f030.jpg?compress=1&resize=800x300";
+    "https://cdn.dribbble.com/users/1890641/screenshots/5408138/media/b384d198d0631718554f88a93b89f9ae.png?compress=1&resize=1000x750";
 
   return (
     <main className="page-course">

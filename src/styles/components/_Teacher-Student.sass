@@ -1,5 +1,4 @@
 .page-teacher
-
     display: flex
     flex-direction: column
     justify-content: flex-start
@@ -23,13 +22,13 @@
 
     .cards
         display: grid
-
         grid-auto-flow: row
 
         @media only screen and (min-width: $tabletBreakpoint)
             gap: 1em
             margin-right: 70px
             grid-template-columns: 1fr 1fr
+            padding: 1em
         @media only screen and (min-width: $desktopBreakpoint)
             grid-template-columns: 1fr 1fr 1fr
             @media only screen and (min-width: 1300px)
@@ -44,7 +43,7 @@
 
             min-width: 300px
             width: 100vw
-            max-width: 500px
+
             height: $card-height
 
             padding: .5em
@@ -53,8 +52,9 @@
 
             grid-template-rows: min-content 1fr min-content
             grid-template-areas: "title ""description ""menu "
-            @media only screen and (min-width: $desktopBreakpoint)
+            @media only screen and (min-width: $tabletBreakpoint)
                 width: 100%
+                max-width: 500px
                 border: 3px solid $gray2
             &:last-child
                 border-bottom: 3px solid $gray2
@@ -63,29 +63,31 @@
                 z-index: 0
                 filter: brightness(.5)
                 height: 100%
+                width: 100%
 
                 object-fit: cover
                 object-position: top center
 
-            .title,
-            p
-                padding: 0 18px
-
             .title
                 z-index: 1
-                margin: 12px 0
+
                 grid-area: title
-                justify-self: center
+                justify-self: flex-start
                 text-align: left
                 width: 100%
                 max-width: 350px
                 text-transform: capitalize
+                padding: .5em 1em
+
+                margin: 0
 
             .description
                 z-index: 1
-
                 grid-area: description
                 max-width: 350px
+                overflow: hidden
+
+                padding-left: 2em
 
             .menu
                 z-index: 1

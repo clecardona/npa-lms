@@ -1,5 +1,5 @@
 import remove from "assets/icns/remove.png";
-import { STATUS_CODES } from "http";
+
 export default function InputFiles({ state, setForm }) {
   //methods
   function onChange(value, index) {

@@ -3,16 +3,15 @@ import { Route } from "react-router-dom";
 
 // Project files
 import { useAuth } from "state/AuthProvider";
-import Teacher from "components/Teacher";
-import Student from "components/Student";
-import Login from "components/Login";
-import SignUp from "components/Signup";
+import Teacher from "components/UserPage/Teacher";
+import Student from "components/UserPage/Student";
+import Login from "components/AuthPages/Login";
+import SignUp from "components/AuthPages/Signup";
 import Header from "components/shared/Header";
-import Course from "components/Course";
-import Playlist from "components/Playlist";
-import Profile from "components/Profile";
+import Course from "components/CoursePage/Course";
+import Playlist from "components/PlaylistPage/Playlist";
+import Profile from "components/ProfilePage/Profile";
 import Toolbar from "components/shared/Toolbar";
-import VideoTest from "components/VideoTest";
 
 export default function Logged() {
   const { user } = useAuth();
@@ -27,7 +26,6 @@ export default function Logged() {
       <Route component={Course} path="/courses/:courseID" />
       <Route component={Playlist} path="/playlist/:courseID" />
       <Route component={Profile} path="/profile/:userID" />
-      <Route component={VideoTest} path="/test" />
     </>
   );
 }

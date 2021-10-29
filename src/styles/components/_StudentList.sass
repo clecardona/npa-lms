@@ -3,8 +3,12 @@
     grid-auto-flow: row
     gap: .3em
     width: 100%
-    max-width: 800px
+    max-width: 600px
+    margin: 0 auto
     padding: 0 1em
+
+    @media only screen and (min-width: $tabletBreakpoint)
+        padding-right: 70px
 
     .student-card
         display: flex

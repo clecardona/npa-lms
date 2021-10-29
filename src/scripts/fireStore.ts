@@ -66,10 +66,9 @@ export async function getDocument(path: string, id: string) {
 export async function updateDocument(path: string, id: string, data: object) {
   const docReference = doc(firestoreInstance, path, id);
   let updatedCourse = { ...data };
-  if (data.files) {
+  if (data.files !== [] && data.files[0].size) {
     const field = await getUrlNameArray(data.files);
     updatedCourse.files = field;
-    //console.log(newCourse);
   }
 
   await updateDoc(docReference, updatedCourse);

@@ -3,12 +3,13 @@
 import { useState, useCallback, useEffect } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 
+//Local Files
+import "styles/base.sass";
 import { useAuth } from "state/AuthProvider";
-import "./styles/base.sass";
+import { getDocument } from "scripts/fireStore";
 import Logged from "routes/Logged";
 import Unlogged from "routes/Unlogged";
 import Footer from "components/shared/Footer";
-import { getDocument } from "scripts/fireStore";
 import Spinner from "components/shared/Spinner";
 import BoxError from "components/shared/BoxError";
 

@@ -1,6 +1,6 @@
 //@ts-nocheck
 //Local Files
-import CoursesList from "components/CoursesList";
+import CoursesList from "components/UserPage/CoursesList";
 
 export default function Student() {
   return (

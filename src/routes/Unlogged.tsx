@@ -2,10 +2,10 @@
 import { Route } from "react-router-dom";
 
 // Project files
-import Login from "components/Login";
-import SignUp from "components/Signup";
-import Landing from "components/Landing";
-import Recover from "components/Recover";
+import Login from "components/AuthPages/Login";
+import SignUp from "components/AuthPages/Signup";
+import Landing from "components/LandingPage/Landing";
+import Recover from "components/AuthPages/Recover";
 
 export default function Unlogged() {
   return (

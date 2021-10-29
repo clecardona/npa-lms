@@ -4,9 +4,9 @@ import { useState } from "react";
 
 //Local imports
 import { useAuth } from "state/AuthProvider";
-import Sorter from "components/shared/Sorter";
-import CoursesList from "components/CoursesList";
-import StudentList from "components/StudentList";
+import Sorter from "components/UserPage/Sorter";
+import CoursesList from "components/UserPage/CoursesList";
+import StudentList from "components/UserPage/StudentList";
 import Modal from "components/shared/Modal";
 
 export default function Teacher() {

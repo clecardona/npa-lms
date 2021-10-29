@@ -1,8 +1,10 @@
+//NPM Packages
 import YouTube from "react-youtube";
 import getYouTubeID from "get-youtube-id";
 
+//Local Files
 import { useState } from "react";
-import VideoList from "./VideoList";
+import VideoList from "components/PlaylistPage/VideoList";
 
 export default function Player({ initialVideo, course }) {
   const [video, setVideo] = useState(initialVideo);
@@ -13,7 +15,6 @@ export default function Player({ initialVideo, course }) {
         <h2>{video.content}</h2>
       </section>
       <YouTube videoId={getYouTubeID(video.url)} containerClassName="video" />
-
       <aside className="list">
         <VideoList course={course} setVideo={setVideo} />
       </aside>

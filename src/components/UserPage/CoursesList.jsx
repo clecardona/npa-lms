@@ -4,10 +4,10 @@ import { useState } from "react";
 //Local Files
 import useFetch from "hooks/useFetch";
 import { useCourses } from "state/CoursesProvider";
-import Card from "./shared/Card";
+import Card from "./Card";
 
-import Spinner from "./shared/Spinner";
-import BoxError from "./shared/BoxError";
+import Spinner from "../shared/Spinner";
+import BoxError from "../shared/BoxError";
 
 export default function CoursesList() {
   const { dispatchCourses } = useCourses();

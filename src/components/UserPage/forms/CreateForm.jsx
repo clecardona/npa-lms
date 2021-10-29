@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 //Local imports
-import fields from "assets/fields-create.json";
-import InputField from "./shared/InputField";
-import InputLinks from "components/shared/InputLinks";
+import fields from "./assets/fields-create.json";
+import InputField from "components/shared/InputField";
+import InputLinks from "components/UserPage/forms/InputLinks";
+import InputFiles from "components/UserPage/forms/InputFiles";
 import { createDoc } from "scripts/fireStore";
-import InputFiles from "./shared/InputFiles";
 
 export default function CreateForm({ onClose }) {
   //Local states

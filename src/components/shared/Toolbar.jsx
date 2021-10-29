@@ -3,11 +3,11 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 //Local files
-import { useAuth } from "state/AuthProvider";
-import down from "../../assets/icns/down.png";
 import calendar from "assets/icns/calendar.png";
+import down from "../../assets/icns/down.png";
 import logout from "assets/icns/logout.png";
 import userIcon from "assets/icns/userIcon.png";
+import { useAuth } from "state/AuthProvider";
 
 export default function Toolbar() {
   //Global

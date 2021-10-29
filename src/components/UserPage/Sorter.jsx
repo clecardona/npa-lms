@@ -1,4 +1,4 @@
-import SortButton from "./SortButton";
+import SortButton from "components/UserPage/SortButton";
 
 export default function Sorter({ hook, typeOfUser }) {
   return (

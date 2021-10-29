@@ -1,9 +1,9 @@
-import { useState } from "react";
+//Local Files
 import useFetch from "hooks/useFetch";
 import { useUsers } from "state/UsersProvider";
 import { deleteDocument } from "scripts/fireStore";
-import Spinner from "./shared/Spinner";
-import BoxError from "./shared/BoxError";
+import Spinner from "../shared/Spinner";
+import BoxError from "../shared/BoxError";
 import kickout from "assets/icns/kickout.png";
 
 export default function StudentList() {

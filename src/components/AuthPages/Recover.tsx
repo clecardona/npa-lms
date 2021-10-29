@@ -1,16 +1,16 @@
 //@ts-nocheck
+//NPM Packages
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+
 //Local imports
-import fields from "assets/fields-recover.json";
-import InputField from "./shared/InputField";
+import fields from "./assets/fields-recover.json";
+import InputField from "../shared/InputField";
 import { recover } from "scripts/auth";
 
 export default function Recover() {
   //Local states
   const [form, setForm] = useState({ email: "" });
   const [message, setMessage] = useState("");
-  const history = useHistory();
 
   // Methods
   function onChange(key, value) {

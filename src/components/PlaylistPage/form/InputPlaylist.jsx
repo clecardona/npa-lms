@@ -1,5 +1,5 @@
 //Local Files
-import input from "assets/input-playlist.json";
+import input from "./input-playlist.json";
 
 export default function InputPlaylist({ index, state, onChange }) {
   const { url, content } = state;

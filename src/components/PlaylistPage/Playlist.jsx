@@ -5,9 +5,9 @@ import { useParams, Link } from "react-router-dom";
 import { getById } from "scripts/methods";
 import useFetch from "hooks/useFetch";
 import { useCourses } from "state/CoursesProvider";
-import Spinner from "./shared/Spinner";
-import BoxError from "./shared/BoxError";
-import Player from "./Player";
+import Spinner from "components/shared/Spinner";
+import BoxError from "components/shared/BoxError";
+import Player from "components/PlaylistPage/Player";
 
 export default function Playlist() {
   // Global state

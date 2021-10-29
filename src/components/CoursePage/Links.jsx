@@ -1,6 +1,4 @@
 export default function Links({ data }) {
-  console.log(data, data.length, data[0].length);
-
   const Links = data.map((item, index) => (
     <a
       href={item}

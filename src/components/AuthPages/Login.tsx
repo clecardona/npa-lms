@@ -4,8 +4,8 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 //Local imports
-import fields from "assets/fields-login.json";
-import InputField from "./shared/InputField";
+import fields from "./assets/fields-login.json";
+import InputField from "components/shared/InputField";
 import { signIn } from "scripts/auth";
 import { getDocument } from "scripts/fireStore";
 import { useAuth } from "state/AuthProvider";
