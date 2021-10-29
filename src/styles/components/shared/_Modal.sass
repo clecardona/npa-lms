@@ -5,161 +5,163 @@
   bottom: 0
   right: 0
   background: rgba(0, 0, 0, 0.8)
-  z-index: 1000
 
 .modal
-  background: $gray1
-  overflow-y: scroll
-  //overflow: hidden
-
+  z-index: 1000
   position: fixed
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
-  padding-bottom: 12px
-
-  width: 100vw
-  height: 100vh
-
-  z-index: 1000
-
-  display: grid
-  grid-auto-flow: row
-
   .modal-header
-
+    position: absolute
+    top: -1px
+    z-index: 1000
     height: 60px
-
+    width: 100%
     background: $black
     color: $white
-
     display: flex
     justify-content: space-between
     align-items: center
     padding: .5em 1.5em
+    box-shadow: 0 3px 8px $black
 
-  .btn-close
-    height: 25px
-    width: 25px
-    border-radius: 25px
-    filter: saturate(0)
+  .container
+    background: $gray1
+    overflow-y: scroll
 
-    img
+    padding: 60px 0 1em 0
+
+    width: 100vw
+    height: 100vh
+
+    display: grid
+    grid-auto-flow: row
+
+    .btn-close
       height: 25px
+      width: 25px
+      border-radius: 25px
+      filter: saturate(0)
 
-    &:hover
-      filter: saturate(1)
-      transition: ease 0.1s
-      background-color: #0000001c
-
-  form
-    width: 100%
-    max-width: 90vw
-    padding: .3em
-    gap: .5em
-    label
-      width: 100%
-      color: $white
-
-    .links,.files
-      grid-template-columns: 1fr 100px
-      grid-template-rows: min-content min-content
-      grid-template-areas: "label label" "input button"
-
-      input
-        grid-area: input
-    .btn-ghost,.btn-main
-      margin: 1em 0
-
-    .btn-remove-field,.btn-clear-field
-      filter: brightness(.5)
-      grid-area: button
-      border: 1px solid $red
-      color: $red
-      margin: .3em
-      padding: .3em
-
-      width: 80%
       img
-        height: 12px
+        height: 25px
+
       &:hover
-        filter: brightness(1)
-        transition: .1s ease
+        filter: saturate(1)
+        transition: ease 0.1s
+        background-color: #0000001c
 
-    .exists
-      display: grid
-      grid-template-columns: 1fr 60px
-      grid-template-areas: "label button"
-
-    .playlist-form-title
-      display: none
-
-    .playlist-item // playlist form
-      color: $white
-
-      margin-bottom: .8em
-
-      display: grid
-      gap: .3em
-      grid-template-columns: 1fr 100px
-      grid-template-rows: min-content min-content
-      grid-template-areas: "url button" " content button"
-
-      //height: min-content
-      padding: 0 .3em
-
-      justify-content: center
-      align-items: center
-
-      .playlist-url
-        grid-area: url
-
-      .playlist-content
-        grid-area: content
-
-      .btn-clear-field
-        grid-area: button
-        height: 44px
-
-@media only screen and (min-width: $tabletBreakpoint)
-  .modal
-    min-height: 300px
-    max-width: 70vw
-    max-height: 70vh
-    box-shadow: 6px 6px 16px $black
     form
-      padding: 1em 2em
-      gap: 1em
-      .playlist-item,.playlist-form-title
+      width: 100%
+      max-width: 90vw
+      padding: .3em
+      gap: .5em
+      label
+        width: 100%
         color: $white
-        display: grid
-        gap: 1em
-        margin: 0
 
-        grid-template-columns: 1fr 1fr 100px
-        grid-template-rows: unset
-        grid-template-areas: "url content button"
-        border-bottom: none
+      .links,.files
+        grid-template-columns: 1fr 100px
+        grid-template-rows: min-content min-content
+        grid-template-areas: "label label" "input button"
 
+        input
+          grid-area: input
       .btn-ghost,.btn-main
-        margin: 0
+        margin: 1em 0
 
-      .btn-clear-field,.btn-add-field
-        height: 30px
-      .btn-add-field
+      .btn-remove-field,.btn-clear-field
         filter: brightness(.5)
-        border: 1px solid $yellow
+        grid-area: button
+        border: 1px solid $red
+        color: $red
         margin: .3em
         padding: .3em
-        height: 30px
-        width: 300px
-        box-shadow: none
-        transform: skewX(-20deg)
-        h4
-          color: $yellow
+
+        width: 80%
         img
           height: 12px
         &:hover
-
           filter: brightness(1)
           transition: .1s ease
+
+      .exists
+        display: grid
+        grid-template-columns: 1fr 60px
+        grid-template-areas: "label button"
+
+      .playlist-form-title
+        display: none
+
+      .playlist-item // playlist form
+        color: $white
+
+        margin-bottom: .8em
+
+        display: grid
+        gap: .3em
+        grid-template-columns: 1fr 100px
+        grid-template-rows: min-content min-content
+        grid-template-areas: "url button" " content button"
+
+        //height: min-content
+        padding: 0 .3em
+
+        justify-content: center
+        align-items: center
+
+        .playlist-url
+          grid-area: url
+
+        .playlist-content
+          grid-area: content
+
+        .btn-clear-field
+          grid-area: button
+          height: 44px
+
+  @media only screen and (min-width: $tabletBreakpoint)
+    .modal-header
+
+    .container
+      min-height: 300px
+      max-width: 70vw
+      max-height: 80vh
+      box-shadow: 6px 6px 16px $black
+      form
+        padding: 1em 2em
+        gap: 1em
+        .playlist-item,.playlist-form-title
+          color: $white
+          display: grid
+          gap: 1em
+          margin: 0
+
+          grid-template-columns: 1fr 1fr 100px
+          grid-template-rows: unset
+          grid-template-areas: "url content button"
+          border-bottom: none
+
+        .btn-ghost,.btn-main
+          margin: 0
+
+        .btn-clear-field,.btn-add-field
+          height: 30px
+        .btn-add-field
+          filter: brightness(.5)
+          border: 1px solid $yellow
+          margin: .3em
+          padding: .3em
+          height: 30px
+          width: 300px
+          box-shadow: none
+          transform: skewX(-20deg)
+          h4
+            color: $yellow
+          img
+            height: 12px
+          &:hover
+
+            filter: brightness(1)
+            transition: .1s ease

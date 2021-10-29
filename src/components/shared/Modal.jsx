@@ -18,14 +18,16 @@ export default function Modal({ isOpen, onClose, data, children, type }) {
             <img alt="close" src={cross} />
           </button>
         </div>
-        {type === "create" && <CreateForm onClose={onClose} />}
-        {type === "edit" && <EditForm onClose={onClose} data={data} />}
-        {type === "edit-profile" && (
-          <EditProfile onClose={onClose} data={data} />
-        )}
-        {type === "edit-playlist" && (
-          <EditPlaylist onClose={onClose} data={data} />
-        )}
+        <div className="container">
+          {type === "create" && <CreateForm onClose={onClose} />}
+          {type === "edit" && <EditForm onClose={onClose} data={data} />}
+          {type === "edit-profile" && (
+            <EditProfile onClose={onClose} data={data} />
+          )}
+          {type === "edit-playlist" && (
+            <EditPlaylist onClose={onClose} data={data} />
+          )}
+        </div>
       </div>
     </>,
     document.getElementById("modal")

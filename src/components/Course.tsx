@@ -63,7 +63,8 @@ export default function Course() {
                 onClick={() => setIsOpen(true)}
               >
                 <h4>
-                  {course.playlist.url ? "Edit" : "Create"} video playlist
+                  {course.playlist.length > 1 ? "Edit" : "Create"} video
+                  playlist
                 </h4>
               </button>
               <Modal
@@ -72,7 +73,7 @@ export default function Course() {
                 onClose={() => setIsOpen(false)}
                 data={course}
               >
-                {course.playlist.url ? "Edit" : "Create"} video playlist
+                {course.playlist.length > 1 ? "Edit" : "Create"} video playlist
               </Modal>
             </div>
           </div>
