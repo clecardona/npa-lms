@@ -48,11 +48,15 @@
         .links
             grid-auto-flow: row
             width: 100%
+            &::-webkit-scrollbar
+                display: none
 
         .files
             min-height: 100px
             height: 100%
             align-items: center
+            &::-webkit-scrollbar
+                display: none
 
         .btn-link
             color: $blue
@@ -120,7 +124,7 @@
                 width: 100%
                 object-fit: cover
                 object-position: top
-                background: red
+                background: $black
             .description
                 grid-area: description
                 display: flex
