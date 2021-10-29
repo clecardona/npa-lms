@@ -9,7 +9,6 @@ import {
   updateDoc,
   setDoc,
 } from "firebase/firestore/lite";
-import { url } from "inspector";
 import { firestoreInstance } from "scripts/firebase";
 import uploadFile from "scripts/storage";
 
@@ -17,10 +16,12 @@ import uploadFile from "scripts/storage";
 export async function createDoc(path: string, data: object) {
   const collectionReference = collection(firestoreInstance, path);
   let newCourse = { ...data };
-  if (data.files) {
+  console.log(data);
+
+  if (data.files !== [] && data.files[0].size) {
+    console.log("upload shoot");
     const field = await getUrlNameArray(data.files);
     newCourse.files = field;
-    console.log(newCourse);
   }
   await addDoc(collectionReference, newCourse);
 }
@@ -67,8 +68,8 @@ export async function updateDocument(path: string, id: string, data: object) {
   let updatedCourse = { ...data };
   if (data.files) {
     const field = await getUrlNameArray(data.files);
-    newCourse.files = field;
-    console.log(newCourse);
+    updatedCourse.files = field;
+    //console.log(newCourse);
   }
 
   await updateDoc(docReference, updatedCourse);

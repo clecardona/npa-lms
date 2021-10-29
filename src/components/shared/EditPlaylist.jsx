@@ -70,11 +70,7 @@ export default function EditPlaylist({ onClose, data }) {
 
       {Fields}
       <p>{errorMessage}</p>
-      <button
-        className="btn btn-ghost btn-add-field"
-        onClick={addField}
-        type="button"
-      >
+      <button className="btn btn-add-field" onClick={addField} type="button">
         <h4> Add a slot </h4>
       </button>
       <button className="btn btn-main btn-140">

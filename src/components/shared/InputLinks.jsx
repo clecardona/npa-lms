@@ -27,13 +27,15 @@ export default function InputLinks({ state, setForm }) {
         value={item}
         placeholder="http://..."
       />
-      <button
-        className="btn btn-clear-field"
-        onClick={() => clearField(index)}
-        type="button"
-      >
-        <img src={remove} alt="-" />
-      </button>
+      {state.links.length > 1 && (
+        <button
+          className="btn btn-clear-field"
+          onClick={() => clearField(index)}
+          type="button"
+        >
+          <img src={remove} alt="-" />
+        </button>
+      )}
     </div>
   ));
 
@@ -41,13 +43,11 @@ export default function InputLinks({ state, setForm }) {
     <>
       <h4>Links </h4>
       {Links}
-      <button
-        className="btn btn-ghost btn-add-field"
-        onClick={addLink}
-        type="button"
-      >
-        <h4> Add a slot </h4>
-      </button>
+      {state.links.length < 5 && (
+        <button className="btn btn-add-field" onClick={addLink} type="button">
+          <h4> Add a slot ( max 5 )</h4>
+        </button>
+      )}
     </>
   );
 }

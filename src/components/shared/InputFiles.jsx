@@ -1,11 +1,19 @@
 import remove from "assets/icns/remove.png";
+import { STATUS_CODES } from "http";
 export default function InputFiles({ state, setForm }) {
   //methods
-
   function onChange(value, index) {
-    const newFiles = [...state.files]; // arr of obj
-    newFiles[index] = value;
-    setForm({ ...state, files: newFiles });
+    if (value && value.size > 3000000) {
+      alert(
+        "Max size : 3Mb ,  your file size : " +
+          Math.floor(value.size / 1000 / 1000) +
+          "Mb"
+      );
+    } else {
+      const newFiles = [...state.files];
+      newFiles[index] = value;
+      setForm({ ...state, files: newFiles });
+    }
   }
 
   function addLink() {
@@ -31,28 +39,27 @@ export default function InputFiles({ state, setForm }) {
           name={index}
         />
       )}
-
-      <button
-        className="btn btn-clear-field"
-        onClick={() => clearField(index)}
-        type="button"
-      >
-        <img src={remove} alt="-" />
-      </button>
+      {state.files.length > 1 && (
+        <button
+          className="btn btn-clear-field"
+          onClick={() => clearField(index)}
+          type="button"
+        >
+          <img src={remove} alt="-" />
+        </button>
+      )}
     </div>
   ));
 
   return (
     <>
-      <h4>Files </h4>
+      <h4>Files ( max 5Mb ) </h4>
       {Files}
-      <button
-        className="btn btn-ghost btn-add-field"
-        onClick={addLink}
-        type="button"
-      >
-        <h4> Add a slot </h4>
-      </button>
+      {state.files.length < 5 && (
+        <button className="btn btn-add-field" onClick={addLink} type="button">
+          <h4> Add a slot ( max 5 )</h4>
+        </button>
+      )}
     </>
   );
 }

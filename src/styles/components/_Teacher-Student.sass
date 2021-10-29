@@ -23,10 +23,11 @@
 
     .cards
         display: grid
-        gap: 18px
+
         grid-auto-flow: row
 
         @media only screen and (min-width: $tabletBreakpoint)
+            gap: 1em
             margin-right: 70px
             grid-template-columns: 1fr 1fr
         @media only screen and (min-width: $desktopBreakpoint)
@@ -42,17 +43,21 @@
             color: $white
 
             min-width: 300px
-            width: 100%
+            width: 100vw
             max-width: 500px
             height: $card-height
 
             padding: .5em
-
+            border-top: 3px solid $gray2
             display: grid
 
             grid-template-rows: min-content 1fr min-content
             grid-template-areas: "title ""description ""menu "
-
+            @media only screen and (min-width: $desktopBreakpoint)
+                width: 100%
+                border: 3px solid $gray2
+            &:last-child
+                border-bottom: 3px solid $gray2
             img
                 position: absolute
                 z-index: 0

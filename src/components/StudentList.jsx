@@ -28,7 +28,7 @@ export default function StudentList() {
       <li key={item.id} className="student-card">
         <h3>{item.username}</h3>
         <button
-          className="btn btn-delete"
+          className="btn btn-ghost"
           onClick={(event) => handleDelete(event, "users", item.id)}
         >
           <img src={kickout} alt="out" />

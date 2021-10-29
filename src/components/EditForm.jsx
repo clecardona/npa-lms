@@ -42,8 +42,6 @@ export default function EditForm({ onClose, data }) {
     />
   ));
 
-  console.log(form);
-
   return (
     <form onSubmit={onSubmit}>
       {Fields}

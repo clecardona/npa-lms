@@ -10,7 +10,7 @@
   {
     "key": "imageURL",
     "label": "Image link",
-    "placeholder": "http://www.unsplash.com/someimage.png",
+    "placeholder": "http://www... .jpeg",
     "type": "text",
     "mode": "create",
     "required": false

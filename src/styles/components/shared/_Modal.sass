@@ -54,45 +54,21 @@
 
     form
       width: 100%
-      max-width: 90vw
-      padding: .3em
+
+      margin: 0
+      padding: 1em
       gap: .5em
       label
         width: 100%
         color: $white
+      .btn-add-field
+        justify-self: flex-start
 
-      .links,.files
-        grid-template-columns: 1fr 100px
-        grid-template-rows: min-content min-content
-        grid-template-areas: "label label" "input button"
-
-        input
-          grid-area: input
-      .btn-ghost,.btn-main
-        margin: 1em 0
-
-      .btn-remove-field,.btn-clear-field
-        filter: brightness(.5)
-        grid-area: button
-        border: 1px solid $red
-        color: $red
-
-        width: 80%
-        img
-          height: 12px
-        &:hover
-          filter: brightness(1)
-          transition: .1s ease
-
-      .exists
-        display: grid
-        grid-template-columns: 1fr 60px
-        grid-template-areas: "label button"
-
+      //edit playlist form 
       .playlist-form-title
         display: none
 
-      .playlist-item // playlist form
+      .playlist-item
         color: $white
 
         margin-bottom: .8em
@@ -130,13 +106,7 @@
       form
         padding: 1em 2em
         gap: 1em
-
-        .links-item,.files-item
-          display: grid
-          gap: 1em
-          grid-template-columns: 1fr 100px
-          grid-template-areas: "url button"
-          align-items: center
+        max-width: unset
 
         .playlist-item,.playlist-form-title
           color: $white
@@ -148,21 +118,11 @@
           grid-template-rows: unset
           grid-template-areas: "url content button"
           border-bottom: none
+          .btn
+            width: 80%
 
-        .btn-ghost,.btn-main
+        .btn-main
           margin: 0
-
-        .btn-clear-field,.btn-add-field
-          height: 44px
-        .btn-add-field
-          filter: brightness(.5)
-          border: 1px solid $yellow
-          margin: .3em
-          padding: .3em
-
-          width: 300px
-          box-shadow: none
-          transform: skewX(-20deg)
           h4
             color: $yellow
           img

@@ -13,6 +13,8 @@
 :-webkit-scrollbar
   display: none
 
+#modal
+  z-index: 10000
 .App
   display: flex
   flex-direction: column
@@ -62,8 +64,14 @@ td
     font-size: 14px
     text-align: left
 
+input
+  border: none
+
 input[type=text]
   padding: 0 18px
+  background: $gray2
+  color: $white
+  border-radius: 8px
 
 section
   padding: 1em 0

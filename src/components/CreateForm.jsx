@@ -17,13 +17,11 @@ export default function CreateForm({ onClose }) {
     imageURL: "",
     content: "",
     links: [""],
-    files: [{}], // todo- refactor to [{}]
+    files: [{}],
     playlist: [{}],
   });
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
-
-  //console.log(form);
 
   // Methods
   function onChange(key, value) {
@@ -34,7 +32,7 @@ export default function CreateForm({ onClose }) {
   async function onSubmit(e) {
     e.preventDefault();
     setErrorMessage("");
-    await createDoc("courses", { ...form });
+    await createDoc("courses", form);
     alert("Course created");
     onClose();
     history.push("/");
@@ -42,11 +40,14 @@ export default function CreateForm({ onClose }) {
 
   //Components
   const Fields = fields.map((item) => (
-    <div className="link-item" key={item.key}>
-      <InputField options={item} state={form[item.key]} onChange={onChange} />
-    </div>
+    <InputField
+      options={item}
+      state={form[item.key]}
+      onChange={onChange}
+      key={item.key}
+    />
   ));
-
+  console.log(form);
   return (
     <form onSubmit={onSubmit}>
       {Fields}

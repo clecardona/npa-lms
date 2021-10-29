@@ -6,17 +6,19 @@
         background: rgba(0,0,0,.3)
         text-transform: capitalize
         padding: .5em 1em
+        text-align: right
+
     .container
-        padding: 1em
+        padding: 1em 0
 
         display: grid
         gap: .3em
         grid-auto-flow: row
         grid-auto-rows: max-content
 
-        .head-title
-            text-transform: capitalize
+        .title
 
+            padding-left: .5em
         .illustration
             width: 100%
             min-height: 200px
@@ -31,7 +33,6 @@
             p
                 background: rgba(255,255 ,255 ,.2 )
                 padding: 1em
-                border-radius: .5em
 
         .links,.files
 
@@ -42,7 +43,16 @@
             width: 100%
             background: rgba(255,255 ,255 ,.2 )
             padding: 1em
-            border-radius: .5em
+
+            overflow-x: scroll
+        .links
+            grid-auto-flow: row
+            width: 100%
+
+        .files
+            min-height: 100px
+            height: 100%
+            align-items: center
 
         .btn-link
             color: $blue
@@ -57,13 +67,10 @@
             &:hover
                 filter: brightness(1)
 
-        .links
-            grid-auto-flow: row
-            width: 100%
-
         .btn-video
             color: $white
             background: $red
+            margin: 0 1em
             filter: brightness(.9)
             h4
                 display: flex
@@ -75,7 +82,7 @@
             &:hover
                 filter: brightness(1)
         .buttons
-            padding: 1.5em 0
+            padding: 1.5em
 
             @include flex-full-centered
             *
@@ -85,11 +92,16 @@
 @media only screen and (min-width: $tabletBreakpoint)
     .page-course
         padding-top: 0
+        .head-title
+            text-align: left
 
         .container
-            padding-top: 5em
+            //padding-top: 5em
+            margin-top: auto
 
             width: 100%
+            max-width: 1000px
+            margin: 0 auto
             min-height: 60vh
 
             padding-right: 70px + 12px
@@ -100,6 +112,7 @@
 
             .title
                 grid-area: title
+                padding: 0
 
             .illustration
                 grid-area: img
@@ -113,6 +126,9 @@
                 display: flex
                 flex-direction: column
 
+                .btn-video
+                    margin: 0 0 .3em 0
+
                 p
 
                     height: 100%
@@ -121,6 +137,9 @@
 
             .files
                 grid-area: files
+                grid-auto-flow: row
+                grid-template-columns: 1fr 1fr
+                overflow-y: unset
 
             .buttons
                 grid-area: buttons

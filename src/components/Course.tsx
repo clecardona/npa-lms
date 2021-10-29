@@ -55,11 +55,11 @@ export default function Course() {
             <Files data={course.files} />
 
             <div className="buttons">
-              <Link to="/" className="btn btn-main btn-180">
+              <Link to="/" className="btn btn-main ">
                 <h4>Back to courses</h4>
               </Link>
               <button
-                className="btn btn-ghost btn-180"
+                className="btn btn-ghost "
                 onClick={() => setIsOpen(true)}
               >
                 <h4>
