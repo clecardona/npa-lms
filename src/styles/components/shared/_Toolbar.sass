@@ -50,10 +50,12 @@
                 filter: saturate(1)
 
     @media only screen and (min-width: $tabletBreakpoint)
-        position: absolute
+        position: fixed
         width: 70px
-        height: calc(100% - $footer-height)
-        padding: 0 1em
+        height: 100%
+        top: 0
+
+        padding: 80px 1em 1em 1em
         justify-content: flex-start
 
         .buttons
@@ -126,5 +128,5 @@
 
                 justify-self: center
     @media only screen and (min-width: $tabletBreakpoint) //toolbar desktop OPEN
-        height: calc(100% - $footer-height)
+        height: 100%
         width: 220px

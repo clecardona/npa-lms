@@ -1,6 +1,7 @@
 //NPM Packages
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import reactDom from "react-dom";
 
 //Local files
 import calendar from "assets/icns/calendar.png";
@@ -23,8 +24,7 @@ export default function Toolbar() {
     setLoggedIn(false);
     history.push("/login");
   }
-
-  return (
+  return reactDom.createPortal(
     <div className={isOpen ? "toolbar toolbar-open" : "toolbar"}>
       <div className="buttons">
         <div className="open">
@@ -62,6 +62,7 @@ export default function Toolbar() {
           <img src={logout} alt="." />
         </button>
       </div>
-    </div>
+    </div>,
+    document.getElementById("toolbar")
   );
 }
