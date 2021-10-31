@@ -38,6 +38,11 @@ export default function Landing() {
             <img src={flip} alt="main" />
           </div>
           <h2>Learn new tricks</h2>
+          <p className="description">
+            Foot X is a Learning management system platform for Learning
+            football skills. Our teacher prepared the best content for you to
+            progress in your journey. Join us , it is free.
+          </p>
           <Link className="btn btn-main btn-signup" to="/signup">
             <h4>signup</h4>
           </Link>
