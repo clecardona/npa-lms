@@ -11,8 +11,18 @@ export default function coursesReducer(state, action) {
       throw new Error(`No action type found ${action.type}`);
   }
 }
+
+/**
+ * There is a huge waste of oportunity here.
+ * The reason we use dispatch instead of useState in the global state
+ * is to be able to validate data before mutating it.
+ */
+
 function createCourse(state, action) {
   const { payload } = action;
+
+  // hey!!! you are asuming that whoever calls dispatch is passing data correctly.
+  // What happens if someone calls dispatch(type: "CREATE_COURSE", payload: "pepito")
   return [...state, payload];
 }
 
