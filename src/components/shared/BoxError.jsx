@@ -1,3 +1,4 @@
+// react is not neccesary to import...
 import React from "react";
 
 export default function BoxError() {

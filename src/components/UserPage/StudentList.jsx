@@ -37,6 +37,13 @@ export default function StudentList() {
       </li>
     );
   });
+
+  // refactor -1 this can be improved by a lot doing something like this:
+  if (users.loading) return <Spinner />;
+  if (users.error !== null) return <BoxError />;
+  // Also in order to further improve the next if/else we can move from having 2 variables to control the status fetching (loading and error)
+  // to a single var and then make this shorter...
+
   return (
     <>
       {users.loading === true && <Spinner />}{" "}

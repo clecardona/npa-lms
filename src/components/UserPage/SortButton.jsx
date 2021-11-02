@@ -8,9 +8,7 @@ export default function SortButton({ children, target, hook }) {
           ? "btn btn-ghost btn-active "
           : "btn btn-ghost btn-inactive"
       }
-      onClick={() => {
-        setSelection(target);
-      }}
+      onClick={() => setSelection(target)}
     >
       <h4>{children}</h4>
     </button>

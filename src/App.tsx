@@ -24,8 +24,10 @@ export default function App() {
   const fetchUser = useCallback(
     async (path) => {
       const uid = localStorage.getItem("uid");
+
       if (uid) {
         const user = await getDocument(path, uid);
+
         setUser(user);
         setLoggedIn(true);
       }
@@ -36,6 +38,10 @@ export default function App() {
 
   useEffect(() => fetchUser("users"), [fetchUser]);
 
+  // Nesting -1
+  // Although this is easy to read because is a small enough example, check what is happening.
+  // You have a simulated switch statement (status 0, 2, 1) and inside the status 1 (positioned after status 2?) you have
+  // a ternary operator for if/else.
   return (
     <div className="App">
       {status === 0 && <Spinner />}

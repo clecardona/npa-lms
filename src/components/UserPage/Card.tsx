@@ -10,19 +10,22 @@ import { useAuth } from "state/AuthProvider";
 interface MyProps {
   data: object;
 }
+
 const Card: FC<MyProps> = ({ data }) => {
   // Global state
   const { user } = useAuth();
   //Local state
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // this is why this should be global, there is a repeated isOpen hook somewhere else in the code
 
   //Const
+  // Tip: Default image url are usually static files inside your project. Imagine that the dribbble servers are down and your own app crashes because of it...
   const DEFAULT_IMAGE_URL =
     "https://cdn.dribbble.com/users/1890641/screenshots/5408138/media/b384d198d0631718554f88a93b89f9ae.png?compress=1&resize=1000x750";
 
   //Methods
   async function handleDelete(event, path, id) {
     event.preventDefault();
+
     if (window.confirm("Are you sure ?")) {
       await deleteDocument(path, id);
       alert("Course deleted");
@@ -46,6 +49,8 @@ const Card: FC<MyProps> = ({ data }) => {
       <h2 className="title">{data.title}</h2>
       <p className="description">{data.description}</p>
 
+      {/* Nesting -1 the content inside <></> should be a sub component anf becuase is related to the teacher */}
+      {/* Should have a prefix like TeacherForm.jsx or TeacherModalForm.jsx, etc. */}
       <div className="menu">
         {user.role === "teacher" && (
           <>

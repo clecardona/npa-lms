@@ -15,6 +15,7 @@ export default function Teacher() {
 
   //Local states
   const [selection, setSelection] = useState("courses");
+  // Modal status is better handled in a ModalProvider as shown in class today (Nov 2, 2021)
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -23,6 +24,7 @@ export default function Teacher() {
       {selection === "courses" && (
         <>
           <CoursesList />
+          {/* Refactor -1 (this block frin button until Modal should be a sub component just like <CourseList />) */}
           <button
             className="btn btn-main btn-300"
             onClick={() => setIsOpen(true)}

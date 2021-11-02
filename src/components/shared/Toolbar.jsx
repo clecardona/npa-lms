@@ -24,6 +24,7 @@ export default function Toolbar() {
     setLoggedIn(false);
     history.push("/login");
   }
+
   return reactDom.createPortal(
     <div className={isOpen ? "toolbar toolbar-open" : "toolbar"}>
       <div className="buttons">
