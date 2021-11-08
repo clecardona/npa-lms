@@ -41,7 +41,7 @@ export default function Course() {
               alt="img"
             />
             <div className="description">
-              {course.playlist[0].url && (
+              {course.playlist.length > 0 && (
                 <Link to={"/playlist/" + courseID} className="btn btn-video">
                   <h4>
                     Video playlist <img src={play} alt="" />
@@ -82,3 +82,4 @@ export default function Course() {
     </main>
   );
 }
+//console.log(course.playlist.length);
